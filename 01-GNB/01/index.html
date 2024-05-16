@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GNB</title>
   <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -15,11 +17,58 @@
       <nav>
         <h1 class="logo"><a href="#">LOGO</a></h1>
         <ul class="gnb">
-          <li><a href="#">MENU 01</a></li>
-          <li><a href="#">MENU 02</a></li>
-          <li><a href="#">MENU 03</a></li>
-          <li><a href="#">MENU 04</a></li>
-          <li><a href="#">MENU 05</a></li>
+          <li>
+            <a href="#">MENU 01</a>
+            <!-- ul.submenu>li*4>a{submenu$$} -->
+            <ul class="submenu">
+              <li><a href="">submenu01</a></li>
+              <li><a href="">submenu02</a></li>
+              <li><a href="">submenu03</a></li>
+              <li><a href="">submenu04</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">MENU 02</a>
+            <ul class="submenu">
+              <li><a href="">submenu01</a></li>
+              <li><a href="">submenu02</a></li>
+              <li><a href="">submenu04</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">MENU 03</a>
+            <ul class="submenu">
+              <li><a href="">submenu01</a></li>
+              <li><a href="">submenu02</a></li>
+              <li><a href="">submenu03</a></li>
+              <li><a href="">submenu04</a></li>
+            </ul>
+
+          </li>
+          <li>
+            <a href="#">MENU 04</a>
+
+            <ul class="submenu">
+              <li><a href="">submenu01</a></li>
+              <li><a href="">submenu02</a></li>
+              <li><a href="">submenu03</a></li>
+              <li><a href="">submenu04</a></li>
+              <li><a href="">submenu05</a></li>
+            </ul>
+
+          </li>
+          <li>
+            <a href="#">MENU 05</a>
+            <ul class="submenu">
+              <li><a href="">submenu01</a></li>
+              <li><a href="">submenu02</a></li>
+              <li><a href="">submenu03</a></li>
+              <li><a href="">submenu04</a></li>
+            </ul>
+
+          </li>
         </ul>
       </nav>
     </div>
