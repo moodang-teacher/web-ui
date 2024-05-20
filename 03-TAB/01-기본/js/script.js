@@ -5,13 +5,8 @@ $(function () {
 
   console.log(tabMenu, tabContent);
 
-  // 초기 세팅
-  // 첫번째 탭메뉴가 활성화되게끔
-  tabMenu.eq(0).addClass('on');
-
-  // 첫번째 항목의 콘텐츠만 보이게
-  tabContent.hide();
-  tabContent.eq(0).show();
+  // 초기 세팅 - 함수의 실행
+  tabAction(0);
 
   // 탭메뉴를 클릭했을 때
   tabMenu.on('click', function (e) {
@@ -22,12 +17,18 @@ $(function () {
     const tabIdx = $(this).index();
     console.log(tabIdx);
 
+    // 함수의 실행
+    tabAction(tabIdx);
+  });
+
+  // 공통의 동작을 함수로 정의
+  function tabAction(index) {
     // 탭메뉴 활성화
     tabMenu.removeClass('on');
-    tabMenu.eq(tabIdx).addClass('on');
+    tabMenu.eq(index).addClass('on');
 
     // 탭 콘텐츠 중에서 인덱스에 해당하는 내용을 보여지게
     tabContent.hide();
-    tabContent.eq(tabIdx).show();
-  });
+    tabContent.eq(index).show();
+  }
 });
