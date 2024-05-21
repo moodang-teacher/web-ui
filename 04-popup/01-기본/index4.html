@@ -29,15 +29,19 @@
    background: #fff;
    transform: translate(-50%, -50%);
    padding: 60px;
-
-   top: -50%;
+   top: 50%;
    opacity: 0;
    transition: 0.3s cubic-bezier(.17, .67, .56, 1.24) 0.4s;
+
+   /* 가려진 팝업창이 마우스와 상관없는 존재가 되게끔 */
+   pointer-events: none;
+   user-select: none;
   }
 
   .popup.active {
-   top: 50%;
    opacity: 1;
+   pointer-events: auto;
+   user-select: auto;
   }
 
   .dim {
@@ -71,7 +75,7 @@
 
 
    // dim을 클릭해도 팝업창 닫기
-   $btnClose.add($dim).on('click', closePopup);
+   $btnClose.on('click', closePopup);
 
    // 중복 코드를 함수로 정의
    function closePopup() {
@@ -103,7 +107,7 @@
    architecto voluptatem eveniet ipsa aspernatur animi inventore amet sequi
    numquam voluptate asperiores? Odit alias ea non fugiat, qui, provident
    placeat pariatur deleniti saepe, inventore quo iusto et rem quos in
-   harum. Error commodi laudantium optio itaque rem inventore odit dolorum
+   harum. <a href="#">Error commodi</a> laudantium optio itaque rem inventore odit dolorum
    incidunt magni quaerat. Itaque dolores voluptas, praesentium dolorem
    voluptatibus recusandae incidunt tempora vero reprehenderit provident
    ratione ullam quidem distinctio fuga labore consequatur earum sed
