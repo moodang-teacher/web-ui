@@ -114,14 +114,17 @@
 
       // 디자인한 셀렉트 박스를 클릭했을 때
       $select.on('click', function () {
-        // $selectList를 슬라이드 다운
-        $selectList.stop().slideDown();
+        // $selectList를 슬라이드 toggle
+        $selectList.stop().slideToggle();
       });
 
       // $selectList의 li를 클릭했을 때
       $selectList.find('li').on('click', function () {
         // 클릭한 놈의 data-link속성의 값을 가져와서 변수에 저장
-        const linkValue = $(this).attr('data-link');
+        // const linkValue = $(this).attr('data-link');
+
+        // data('속성이름') : data- 의 속성이름을 가져오거나 세팅
+        const linkValue = $(this).data('link');
 
         // 새 창 열기
         window.open(linkValue);
