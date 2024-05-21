@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>family Site</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    ol,
+    li {
+      list-style: none;
+    }
+
+    .wrap {
+      width: 50%;
+      margin: 50px auto;
+      border: 10px solid #eee;
+      padding: 60px;
+    }
+
+    .sample {
+      background: #f5f5f5;
+      margin-top: 60px;
+    }
+
+    .select-menu {
+      width: 200px;
+      height: 50px;
+      border: 1px solid #000;
+    }
+
+    .select-wrap {
+      width: 200px;
+      height: 50px;
+      border: 1px solid #000;
+      background: #fff;
+      position: relative;
+    }
+
+    .select-wrap strong {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .select-wrap strong::after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      border: solid #000;
+      border-width: 2px 2px 0 0;
+      transform: rotate(135deg);
+    }
+
+    .select-list {
+      position: absolute;
+      top: 50px;
+      left: -1px;
+      width: calc(100% + 2px);
+      border: 1px solid #000;
+      background: #fff;
+      display: none;
+    }
+
+    .select-list li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .select-list li:hover {
+      background: #f5f5f5;
+    }
+  </style>
+  <script src="./js/jquery-3.7.0.min.js"></script>
+  <script>
+    $(function () {
+
+      // 1. select 사용
+      // 대상을 변수에 저장
+      const $selectMenu = $('.select-menu');
+
+      // 셀렉트박스의 선택이 바뀌면 --> change
+      // change 이벤트 :  input, textarea, select 요소의 value에 변화가 생겼을 때
+      $selectMenu.on('change', function () {
+        // 사용자가 선택한 option태그의 value값을 구해서 변수에 담는다. : val()
+        const linkValue = $(this).val();
+        console.log(linkValue);
+
+        // 페이지 이동
+        // location.href = linkValue;
+
+        // 새 창 열기
+        window.open(linkValue);
+      });
+
+
+      // 2. 디자인 커스텀
+      // 대상을 변수에 저장
+      const $select = $('.select-wrap > strong');
+      const $selectList = $('.select-list');
+
+      // 디자인한 셀렉트 박스를 클릭했을 때
+      $select.on('click', function () {
+        // $selectList를 슬라이드 다운
+        $selectList.stop().slideDown();
+      });
+
+      // $selectList의 li를 클릭했을 때
+      $selectList.find('li').on('click', function () {
+        // 클릭한 놈의 data-link속성의 값을 가져와서 변수에 저장
+        const linkValue = $(this).attr('data-link');
+
+        // 새 창 열기
+        window.open(linkValue);
+
+        // $selectList를 슬라이드 업
+        $selectList.stop().slideUp();
+      })
+
+    })
+
+
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Family site link</h1>
+
+    <!-- 1. select -->
+    <div class="sample">
+      <!-- select>opt*4 -->
+      <select class="select-menu">
+        <option value="#" selected>Family Site</option>
+        <option value="https://www.google.com">구글</option>
+        <option value="https://www.naver.com">네이버</option>
+        <option value="https://www.daum.net">다음</option>
+      </select>
+    </div>
+
+    <!-- 2. 디자인 커스텀 -->
+    <div class="sample">
+      <!-- .select-wrap>strong+ul.select-list>li*3 -->
+      <div class="select-wrap">
+        <strong>Family Site</strong>
+        <ul class="select-list">
+          <li data-link="https://www.google.com">구글</li>
+          <li data-link="https://www.naver.com">네이버</li>
+          <li data-link="https://www.daum.net">다음</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
