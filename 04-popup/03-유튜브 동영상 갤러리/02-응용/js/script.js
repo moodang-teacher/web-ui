@@ -15,6 +15,18 @@ $(function () {
     'http://image.yes24.com/images/chyes24/froala/0/48248/58165.jpg',
   ];
 
+  // 여러 대상에 동일한 동작을 적용하고자 할 때 사용
+  // javascript forEach()
+  // imgArr.forEach(function (item, index) {
+  //   console.log(item, index);
+  // });
+
+  // jQuery each()
+  $selectVideo.each(function (index, item) {
+    console.log(index, item);
+    $(item).css('background', `url( ${imgArr[index]} ) no-repeat 0 0 /cover`);
+  });
+
   // console.log(imgArr[2], $selectVideo);
   // $body.css('background', `url( ${imgArr[0]} ) no-repeat 0 0 /cover`);
 
