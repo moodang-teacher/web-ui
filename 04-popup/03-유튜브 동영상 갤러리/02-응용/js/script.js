@@ -72,7 +72,9 @@ $(function () {
     // $videoWrap을 안 보이게
     $videoWrap.removeClass('active');
 
-    // $video의 src 값을 없애자 --> 동영상 삭제
-    $video.attr('src', '');
+    // $video의 src 값을 없애자 --> 3초 후에 동영상 삭제
+    setTimeout(function () {
+      $video.attr('src', '');
+    }, 300);
   });
 });
