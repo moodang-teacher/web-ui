@@ -23,12 +23,9 @@ $(function () {
     const videoSrc = $imgEl.data('link');
     console.log(imgSrc, imgTitle, videoSrc);
 
-    // 뿌려지는 이미지를 테스트
-    // $galleryContent.text(`<img src="${imgSrc}">`);
-    // $galleryContent.html(`<img src="${imgSrc}">`);
-
-    // data-link의 값이 있는 상태 --> 블랙핑크 이미지를 클릭했다. --> 동영상을 뿌려야 한다.
-    if (videoSrc !== undefined) {
+    // 선택한 상황에 따라서
+    if (videoSrc) {
+      // 블랙핑크 이미지를 클릭한 상태
       $galleryContent.html(`<iframe src="${videoSrc}">`);
     } else {
       // 티셔츠 이미지를 클릭한 상태
