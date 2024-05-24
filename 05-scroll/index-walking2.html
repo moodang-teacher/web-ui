@@ -74,11 +74,13 @@
     scrollHeight = docHeight - winHeight;
    }
 
-   // 처음에는 숨기고 시작
-   $girl.add($puppy).hide();
+   // 스크롤 위치에 따른 요소의 상태 업데이트
+   function updatePosition() {
+    const scrollTop = $window.scrollTop();
+    const percent = scrollTop / scrollHeight * 100 + '%';
 
-   $window.on('scroll', function () {
-    const scrollTop = $(this).scrollTop();
+    $girl.css('left', percent);
+    $puppy.css('left', percent);
 
     // 스크롤 동안에는 보이고 상단으로 이동했을 때, 사라짐
     if (scrollTop === 0) {
@@ -86,16 +88,13 @@
     } else {
      $girl.add($puppy).fadeIn();
     }
+   }
 
-    const percent = scrollTop / scrollHeight * 100 + '%';
-
-    $girl.css('left', percent);
-    $puppy.css('left', percent);
-   });
+   // 스크롤 이벤트 핸들러
+   $window.on('scroll', updatePosition);
 
    // 마우스 휠과 키보드를 조작할 때
    $window.on('wheel keydown', function (e) {
-
     if (e.originalEvent.deltaY < 0 || e.key === 'ArrowUp') {
      // 휠을 올린 상태
      $girl.css('transform', 'rotateY(180deg)');
@@ -103,17 +102,17 @@
      // 휠을 내린 상태
      $girl.css('transform', 'rotateY(0deg)');
     }
-   })
+   });
 
    // 브라우저 창이 조절될 때
    $window.on('resize', function () {
     // 변경된 크기값을 받아오자
     getHeight();
-
-    // 강제로 스크롤 이벤트를 발생
-    $window.trigger('scroll');
-   })
+    // 스크롤 위치에 따른 요소의 상태를 직접 업데이트
+    updatePosition();
+   });
   });
+
  </script>
 
 </head>
