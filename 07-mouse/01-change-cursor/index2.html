@@ -40,10 +40,43 @@
       /* 마우스에 걸리적 거리지 말 것! */
       pointer-events: none;
       user-select: none;
+
+      z-index: 1;
     }
 
     .cursor.click {
       background-position: -33px 0;
+    }
+
+    /* 따라다니는 애 */
+    .spark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(calc(-50% + 6px), calc(-50% + -4px));
+      width: 10px;
+      height: 10px;
+      background: #000;
+      border-radius: 50%;
+
+      /* 마우스에 걸리적 거리지 말 것! */
+      pointer-events: none;
+      user-select: none;
+
+      transition: 0.4s;
+
+    }
+
+    .spark.active {
+      animation: spark-ani 1s;
+    }
+
+    @keyframes spark-ani {
+      100% {
+        width: 70px;
+        height: 70px;
+        opacity: 0;
+      }
     }
   </style>
   <script src="./js/jquery-3.3.1.min.js"></script>
@@ -53,6 +86,7 @@
       // 대상을 변수에 저장
       const $window = $(window);
       const $cursor = $('.cursor');
+      const $spark = $('.spark');
 
       // 브라우저 창에서 마우스가 움직일 때
       $window.on('mousemove', function (e) {
@@ -63,7 +97,7 @@
         const mouseY = e.pageY;
 
         // 가짜 마우스의 left, top 값으로 적용
-        $cursor.css({
+        $cursor.add($spark).css({
           left: mouseX,
           top: mouseY
         });
@@ -79,6 +113,15 @@
       $window.on('mouseup', function () {
         $cursor.removeClass('click');
       });
+
+      // 화면을 클릭하면 spark에 active 클래스 부여
+      $window.on('click', function () {
+        $spark.addClass('active');
+
+        setTimeout(function () {
+          $spark.removeClass('active');
+        }, 1000);
+      });
     })
   </script>
 
@@ -86,6 +129,7 @@
 
 <body>
   <div class="cursor"></div>
+  <div class="spark"></div>
 
   <div class="wrap">
     <p>
