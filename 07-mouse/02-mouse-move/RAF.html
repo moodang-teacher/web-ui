@@ -71,6 +71,7 @@
 
     let xPos = 0;
     let raf;
+    let isRunning = false;
 
     function running() {
       info.textContent = xPos;
@@ -87,8 +88,16 @@
 
     // 화면을 클릭하면 고양이가 멈춘다.
     window.addEventListener('click', function () {
-      cancelAnimationFrame(raf);
-      cat.style.animationPlayState = 'paused';
+
+      if (!isRunning) {
+        cancelAnimationFrame(raf);
+        cat.style.animationPlayState = 'paused';
+        isRunning = true;
+      } else {
+        raf = requestAnimationFrame(running);
+        cat.style.animationPlayState = 'running';
+        isRunning = false;
+      }
     });
   </script>
 </body>
