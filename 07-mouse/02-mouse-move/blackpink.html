@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .visible {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+
+      border: 1px solid #000;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+    }
+
+    .pic {
+      position: absolute;
+      background: url('https://wwd.com/wp-content/uploads/2022/08/Blackpink-Getty-02.jpg') no-repeat 50% / cover;
+      width: 110%;
+      height: 110%;
+    }
+
+    .jisoo {
+      position: absolute;
+
+      width: 600px;
+      height: 700px;
+      background: url('https://github.com/moodang-teacher/03-TAB/blob/main/02/img/jisoo01.png?raw=true') no-repeat 50% / contain;
+    }
+  </style>
+
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script>
+    $(function () {
+      const $window = $(window);
+      const $pic = $('.pic');
+      const $jisoo = $('.jisoo');
+
+      let x = 0;
+      let y = 0;
+      let mx = 0;
+      let my = 0;
+      const speed = 0.009;
+
+      let raf;
+
+      initAnimation();
+
+      function initAnimation() {
+        getOffset();
+        moving();
+      }
+      function getOffset() {
+        $window.on('mousemove', function (e) {
+          x = e.pageX;
+          y = e.pageY;
+
+          // 조정된 값 구하기
+          mx = ($window.outerWidth() / 2 - x) * speed;
+          my = ($window.outerHeight() / 2 - y) * speed;
+        });
+      }
+
+      function moving() {
+
+        // 대상에 값 적용
+        $pic.css({
+          transform: `translate(${mx}px, ${my}px)`
+        });
+        $jisoo.css({
+          transform: `translate(${mx * 4}px, ${my * 3}px)`
+        });
+
+        // 부드럽게 반복
+        raf = requestAnimationFrame(moving);
+      }
+    })
+  </script>
+</head>
+
+<body>
+  <div class="visible">
+    <div class="pic"></div>
+    <div class="jisoo"></div>
+  </div>
+</body>
+
+</html>
