@@ -65,12 +65,10 @@
       }
       function getOffset() {
         $window.on('mousemove', function (e) {
-          x = e.pageX;
-          y = e.pageY;
-
-          // 조정된 값 구하기
-          mx = ($window.outerWidth() / 2 - x) * speed;
-          my = ($window.outerHeight() / 2 - y) * speed;
+          x = e.pageX - $window.outerWidth() / 2;
+          y = e.pageY - $window.outerHeight() / 2;
+          mx = (x - mx) * speed;
+          my = (y - my) * speed;
         });
       }
 
