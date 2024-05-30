@@ -1,0 +1,158 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+body {
+  /* overflow: hidden; */
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  transition: 0.4s;
+}
+#header.hide {
+  transform: translateY(-100%);
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.gnb {
+  display: flex;
+}
+
+.gnb li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+main > section {
+  height: 100vh;
+  padding: 150px 100px;
+}
+main > section.section1 {
+  background: red;
+}
+main > section.section2 {
+  background: yellow;
+}
+main > section.section3 {
+  background: green;
+}
+main > section.section4 {
+  background: blue;
+}
+#footer {
+  height: 50px;
+  line-height: 50px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+.btn-top {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  background: khaki;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  width: 70px;
+  height: 70px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.indicator {
+  position: fixed;
+  top: 50%;
+  right: 100px;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* aife */
+  gap: 20px;
+}
+.indicator li {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #fff;
+  transition: 0.3s;
+}
+.indicator li.active {
+  width: 60px;
+}
+
+.indicator li a {
+  display: block;
+  height: 100%;
+}
+
+.indicator li a b {
+  display: none;
+}
+
+.main-slider {
+  border: 5px solid #000;
+  height: 100%;
+  font-size: 5vw;
+}
+
+.main-slider .fp-controlArrow {
+  border: none;
+  /* w70+h70+bdrs50p+bg#000 */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #000 no-repeat 50%;
+}
+.main-slider .fp-controlArrow.fp-prev {
+  background-image: url('이전 화살표 이미지');
+}
+.main-slider .fp-controlArrow.fp-next {
+  background-image: url('다음 화살표 이미지');
+}
+
+.fp-slidesNav ul {
+  display: flex;
+  justify-content: center;
+}
