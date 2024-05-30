@@ -23,7 +23,7 @@ $(function () {
     menu: '.indicator',
 
     // 2. 앵커(영역)의 이름 설정
-    anchors: ['section1', 'section2', 'section3', 'section4'],
+    anchors: ['section1', 'section2', 'section3', 'section4', 'footer'],
 
     // 3. 실제 링크에 data-menuanchor="영역이름" 적용
 
