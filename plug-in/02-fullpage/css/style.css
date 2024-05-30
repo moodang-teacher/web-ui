@@ -75,6 +75,11 @@ main > section.section3 {
 main > section.section4 {
   background: blue;
 }
+
+main > section h2 {
+  font-size: 5vw;
+}
+
 #footer {
   height: 50px;
   line-height: 50px;
