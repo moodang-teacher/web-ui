@@ -1,0 +1,439 @@
+@charset "utf-8";
+
+@charset 'utf-8';
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  font-size: 62.5%;
+  --main-color: #5c3a93;
+  --title-color: #ceb0ff;
+  --text-color: rgba(255, 255, 255, 0.7);
+  --text-color-black: rgba(0, 0, 0, 0.7);
+  --txt: #555;
+  --whith: #fff;
+  --black: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+img {
+  max-width: 100%;
+}
+
+.hidden {
+  position: absolute;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+#header .nav {
+  display: flex;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 132rem;
+  width: 68.75%;
+  margin: 0 auto;
+
+  /* background: rgba(255, 255, 0, 0.3); */
+}
+
+.sec-tit {
+  font-weight: 700;
+  font-size: 4.5rem;
+  color: var(--whith);
+}
+
+body {
+  font: 1.6rem/1.5 "pretendard", sans-serif;
+  color: var(--main-color);
+  word-break: keep-all; /* wbka */
+  overflow-x: hidden;
+}
+
+#header {
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--whith);
+  z-index: 10;
+}
+
+#header .inner {
+  width: 175rem;
+  width: 91.1458%;
+}
+
+#header nav {
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  display: block;
+  width: 15.9rem;
+  height: 3.3rem;
+  background: url(../img/h-logo.png) no-repeat 50% / contain;
+  mix-blend-mode: multiply;
+}
+
+.gnb {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 5rem;
+}
+
+.gnb li a {
+  display: block;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.gnb li a:hover {
+  color: var(--main-color);
+}
+
+.util {
+  margin-left: 12rem;
+}
+.util button {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: var(--main-color) no-repeat 50% / 50% auto;
+  /* border: 1px solid var(--black); */
+  border-radius: 50%;
+}
+
+.util button:nth-child(1) {
+  background-image: url(../img/ico-login.svg);
+}
+.util button:nth-child(2) {
+  background-image: url(../img/ico-search.svg);
+  margin-left: 1.2rem;
+}
+
+#footer {
+  background: var(--main-color);
+  color: var(--text-color);
+}
+
+.foot {
+  display: flex;
+  padding: 10.2rem 0 0;
+  justify-content: space-between;
+}
+
+.foot-service h6,
+.foot-yamaha-ko h6 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: var(--whith);
+}
+
+.foot-service dl,
+.foot-yamaha-ko dl {
+  margin-top: 2.2rem;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.foot-service dl dt,
+.foot-yamaha-ko dl dt {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.foot-service dl dd,
+.foot-yamaha-ko dl dd {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.foot-logo {
+  width: 13.9rem;
+  height: 5.1rem;
+  margin: 0 auto;
+  background: url(../img/f-logo.svg) no-repeat 50% / contain;
+  margin-top: 2rem;
+}
+
+.yamaha-service {
+  margin-top: 5.2rem;
+}
+
+.yamaha-service ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+}
+
+.yamaha-service ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.yamaha-service ul li a::before {
+  content: "";
+  display: block;
+  width: 7.7rem;
+  height: 7.7rem;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  background: no-repeat 50% / 40% auto;
+}
+
+.yamaha-service ul li a:hover {
+  color: var(--whith);
+}
+
+.yamaha-service ul li:nth-child(1) a::before {
+  background-image: url(../img/ico-searvice1.svg);
+}
+.yamaha-service ul li:nth-child(2) a::before {
+  background-image: url(../img/ico-searvice2.svg);
+}
+.yamaha-service ul li:nth-child(3) a::before {
+  background-image: url(../img/ico-searvice3.svg);
+}
+.yamaha-service ul li p {
+  margin-top: 1.5rem;
+}
+
+/* .yamaha-service ul li a:hover {
+  animation: shake-top 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+} */
+.foot-info {
+  margin-top: 3.6rem;
+}
+
+.foot-info ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.foot-info ul li a:hover {
+  color: var(--whith);
+  text-decoration: underline;
+}
+
+.foot-info2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10.2rem;
+  margin-top: 1.9rem;
+}
+
+.quick-menu {
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+}
+
+.quick-menu a {
+  width: 5.3rem;
+  height: 5.3rem;
+  border: 1px solid var(--title-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 2.1rem;
+
+  background: no-repeat 50% / 50% auto;
+  transition: 0.2s;
+}
+
+.quick-menu .btn-youtube {
+  background-image: url(../img/quick-youtube.svg);
+  z-index: 1;
+}
+
+.quick-menu .btn-blog {
+  background-image: url(../img/quick-blog.svg);
+}
+
+.quick-menu .btn-insta {
+  background-image: url(../img/quick-insta.svg);
+}
+
+.quick-menu .btn-top {
+  background: var(--title-color) url(../img/quick-top.svg) no-repeat 50% / 30%
+    auto;
+}
+
+.btn-youtube:hover {
+  background: url(../img/quick-youtube.svg) no-repeat 50% / 60% auto;
+}
+
+.btn-blog:hover {
+  background: url(../img/quick-blog.svg) no-repeat 50% / 60% auto;
+}
+.btn-insta:hover {
+  background: url(../img/quick-insta.svg) no-repeat 50% / 60% auto;
+}
+
+.btn-top:hover {
+  background: var(--title-color) url(../img/quick-top.svg) no-repeat 50% / 40%
+    auto;
+}
+
+/* 태블릿 */
+
+@media (max-width: 1100px) {
+  .sec-tit {
+    font-size: 3rem;
+  }
+  .util,
+  .gnb {
+    display: none;
+  }
+
+  .m-menu {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    background: url(../img/ico-menu.svg) no-repeat 50% /60% auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #header .inner,
+  .inner {
+    width: 82.9427%;
+  }
+
+  .logo a {
+    width: 18.7031vw;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  .foot {
+  }
+
+  .foot-service h6,
+  .foot-yamaha-ko h6 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .foot-yamaha-ko dl,
+  .foot-service dl {
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .foot-yamaha-ko dl dt,
+  .foot-service dl dt {
+    font-size: 1.2rem;
+    margin: 0;
+    /* text-align: center; */
+  }
+
+  .foot-yamaha-ko dl dt dd,
+  .foot-service dl dt dd {
+    font-size: 1rem;
+    align-items: center;
+  }
+
+  .yamaha-service ul li a p {
+    font-size: 1.2rem;
+  }
+
+  .yamaha-service ul li a::before {
+    background: no-repeat 50% / 40% auto;
+    aspect-ratio: 1/1;
+  }
+
+  .foot-info ul li a p {
+    /* font-size: 1.2rem; */
+  }
+
+  .foot-info2 p {
+    font-size: 1rem;
+  }
+
+  .quick-menu a {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 567px) {
+  .foot {
+    padding: 3.2rem 0 0;
+  }
+
+  .foot {
+    flex-direction: column;
+  }
+  .foot-service h6 {
+    margin-top: 4rem;
+  }
+
+  .yamaha-service ul li a {
+    width: 5rem;
+  }
+
+  .foot-info {
+    font-size: 1rem;
+    align-items: center;
+  }
+
+  .foot-info2 {
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .inner {
+    width: 89.3333%;
+  }
+  .m-menu {
+    width: 3rem;
+    height: 3rem;
+  }
+  .logo a {
+    width: 24.5333vw;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  .sec-tit {
+    font-size: 2.5rem;
+  }
+}

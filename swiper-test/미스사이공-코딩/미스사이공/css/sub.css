@@ -1,0 +1,386 @@
+/* 서브페이지 menu */
+/* 추가로 더 해야 할 것: inner 크기 태블릿, 모바일 늘리기 , 그리고 그거에 맞춰서 콘텐츠 배열하기 
+메뉴 검색 부분 줄어들 때 inner 크기에 맞춰서 90퍼센트 정도로 하기, tab메뉴 크기 늘리기 */
+
+/* sub-menu */
+.sub-visual {
+  height: 54.9rem;
+  /* height: 28.5938vw; */
+}
+.sub-visual-title {
+  /* background: #55f; */
+  position: absolute;
+  /* top: 17.5rem; */
+  top: 9.1145vw;
+  /* left: 97.6rem; */
+  left: 50.8333%;
+  /* width: 90rem; */
+  width: 46.875%;
+  transform: translateX(-50%);
+  text-align: center;
+  word-break: keep-all;
+}
+.sub-visual-title h2 {
+  font-weight: 700;
+  font-size: 8rem;
+  margin-top: 2rem;
+  color: var(--white);
+}
+.sub-visual-title strong {
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--white);
+}
+.sub-visual figure {
+  width: 100%;
+  height: 100%;
+}
+.sub-visual figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* bread-nav */
+.bread-con {
+  display: flex;
+  margin-top: 4.4rem;
+  gap: 1.5rem;
+}
+.bread-con figure {
+  display: flex;
+  align-items: center;
+}
+.bread-con p {
+  color: var(--gray-text);
+}
+/* search */
+.search {
+  background: var(--gray);
+  /* height: 6.2rem; */
+  /* height: 34rem; */
+  /* height: 17.7083vh; */
+  aspect-ratio: 1/0.177;
+  margin: 4.4rem auto;
+}
+.search h3 {
+  font-weight: 500;
+  font-size: 3.5rem;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+.search-wrap {
+  padding: 7.1rem;
+  margin: 0 auto;
+}
+.search .form-wrap {
+  margin-top: 4.4rem;
+}
+.search-f-row {
+  display: flex;
+  /* width: 106.7rem; */
+  width: 55.5729%;
+  height: 9rem;
+  /* height: 4.6875vw; */
+  margin: 0 auto;
+  background: #fff;
+}
+.search-f-row::before {
+  content: '';
+  display: block;
+  width: 5%;
+  background: url(../img/ico-menu-search.svg) no-repeat 50% / contain;
+}
+
+.search-f-row input {
+  width: 75%;
+  padding: 1rem 5rem;
+  font-weight: 500;
+  font-size: 1.9rem;
+}
+
+.search-f-row .menu-search {
+  width: 20%;
+  text-align: center;
+  background: var(--point-color);
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* menu */
+
+.tab {
+  margin-top: 14.6rem;
+}
+.tab-catergory ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.tab-catergory li {
+  width: 17.4342%;
+  height: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50px;
+  border: 1px solid var(--title-color);
+  font-weight: 700;
+  font-size: 3.3rem;
+  color: var(--title-color);
+}
+.tab-catergory li:hover {
+  color: var(--white);
+  background: var(--main-color);
+}
+.tab-catergory li a:hover {
+  color: var(--title-color);
+}
+
+.sub-tab-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  row-gap: 20px;
+  margin-top: 12rem;
+}
+.sub-tab-menu li {
+  width: 41.1rem;
+  width: 27.0394%;
+  /* height: 44.4rem; */
+  aspect-ratio: 1/1.4525;
+  background: #fff;
+  padding: 3rem 5rem;
+}
+.sub-tab-menu li figure {
+  width: 100%;
+  aspect-ratio: 1/1;
+  /* background: #ff5; */
+  overflow: hidden;
+}
+
+.sub-tab-menu li figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: 0.4s;
+}
+.sub-tab-menu li:hover figure img {
+  transform: scale(1.5);
+}
+.sub-tab-menu li p {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+.sub-tab-menu li strong {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2.8rem;
+  color: var(--menu-color);
+  margin-top: 1rem;
+}
+.sub-tab-menu li strong:hover {
+  font-size: 3rem;
+  text-decoration: underline;
+}
+.sub-tab-menu li span {
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-top: 2.3rem;
+  line-height: 1.4388;
+}
+.sub-tab-menu li:nth-child(1) {
+  position: relative;
+}
+.sub-tab-menu li .badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.sub-tab-menu li .menu-info .btn-more {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  margin: 1rem auto;
+  background: url(../img/menu-info-more.svg) no-repeat 50% / cover;
+}
+
+.menu .all-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 27.6rem;
+  height: 7rem;
+  border-radius: 50px;
+  background: var(--point-color);
+  color: var(--white);
+  text-align: center;
+
+  margin-top: 9.6rem;
+}
+.menu .all-menu:hover {
+  color: var(--main-color);
+}
+/* pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination figure {
+  display: flex;
+  align-items: center;
+}
+.pagination .number {
+  width: 32rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15.2rem;
+}
+.pagination span:hover {
+  color: var(--main-color);
+}
+
+/* 태블릿 */
+@media (max-width: 768px) {
+  .inner {
+    width: 64.8rem;
+    width: 84.375%;
+  }
+  .gnb {
+    display: none;
+  }
+  .sub-visual {
+    height: 41.4rem;
+  }
+  .sub-visual-title {
+    /* background: #55f; */
+    position: absolute;
+    /* top: 17.5rem; */
+    top: 9.1145vw;
+    /* left: 97.6rem; */
+    left: 50.8333%;
+    /* width: 51.7rem; */
+    width: 67.3177%;
+
+    transform: translateX(-50%);
+    text-align: center;
+    word-break: keep-all;
+  }
+  /* .sub-visual-title h2 {
+    font-weight: 700;
+    font-size: 5.3rem;
+    margin-top: 2rem;
+    color: var(--white);
+  }
+  .sub-visual-title strong {
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--white);
+  } */
+  .bread-con figure {
+    width: 1.6rem;
+    height: 1.3rem;
+  }
+  .bread-con p {
+    font-size: 1.2rem;
+  }
+  .tab-catergory li {
+    font-size: 1.5rem;
+  }
+  .sub-tab-menu li .badge {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  .sub-tab-menu li {
+    width: 26.7605%;
+    aspect-ratio: 1/1.5592;
+    padding: 1rem 1rem;
+  }
+  .sub-tab-menu li p {
+    font-size: 0.7rem;
+    margin-top: 1rem;
+  }
+  .sub-tab-menu li strong {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  .sub-tab-menu li strong:hover {
+    font-size: 1.6rem;
+  }
+  .sub-tab-menu li span {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .search-wrap {
+    padding: 5.1rem 0;
+  }
+  .search h3 {
+    font-size: 1.8rem;
+  }
+  .search-f-row {
+    width: 47.4rem;
+    width: 61.7188%;
+    width: 90%;
+    height: 4rem;
+  }
+  .search-f-row input {
+    padding: 2rem;
+    font-size: 1.3rem;
+  }
+  .search-f-row .menu-search {
+    font-size: 1rem;
+  }
+
+  .pagination .number a {
+    font-size: 1.1rem;
+  }
+  .pagination .number figure {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+/* 모바일 */
+@media (max-width: 375px) {
+  .inner {
+    width: 33.5rem;
+    width: 89.3333%;
+  }
+  .sub-visual {
+    height: 31rem;
+  }
+  .sub-tab-menu li {
+    /* width: 11.7rem; */
+    width: 36%;
+    aspect-ratio: 1/1.5555;
+    padding: 1rem 1rem;
+  }
+  .sub-visual-title h2 {
+    font-size: 5rem;
+  }
+  .sub-visual-title strong {
+    font-size: 1.8rem;
+  }
+  /* 
+  .search-f-row {
+    width: 23.3rem;
+    width: 90%;
+  } */
+  .search-f-row input {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>야마하뮤직 코리아</title>
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" />
+
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/common.css" />
+
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="./js/swiper-bundle.min.js"></script>
+  <script>
+    $(function () {
+      const artistSlider = new Swiper('.artist-slider', {
+
+        autoplay: {
+          delay: 1000,
+        },
+        loop: true,
+
+        navigation: {
+          nextEl: '.btn-after-white',
+          prevEl: '.btn-before-white',
+        },
+      });
+    })
+  </script>
+</head>
+
+<body>
+  <a href="#main" class="skip hidden">본문 바로가기</a>
+
+  <header id="header">
+    <div class="inner">
+      <nav>
+        <h1 class="logo">
+          <a href="#"><i class="hidden">yamaha</i></a>
+        </h1>
+        <ul class="gnb">
+          <li><a href="./product.html">제품</a></li>
+          <li><a href="#">뉴스&이벤트</a></li>
+          <li><a href="#">고객서비스</a></li>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">매장찾기</a></li>
+        </ul>
+        <div class="util">
+          <button type="button" class="btn-login">
+            <i class="hidden">login</i>
+          </button>
+          <button type="button" class="btn-search">
+            <i class="hidden">search</i>
+          </button>
+        </div>
+        <!-- 모바일 메뉴 -->
+        <a href="#" class="m-menu"><i class="hidden">모바일메뉴</i></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="visual">
+      <i class="hidden">
+        <h2>YAMAHA</h2>
+      </i>
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/CqYL0dadIcE?si=b9mTNajb7BPmmfJR?version=2&autoplay=1&autoplay=1&mute=1"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="product">
+      <div class="sec-tit">
+        <h3>product</h3>
+      </div>
+      <div class="pro-instrument">
+        <figure><img src="./img/product.png" alt="악기제품" /></figure>
+        <ul class="pro-instrument-list">
+          <li><a href="#">현악기</a></li>
+          <li><a href="#">금관악기</a></li>
+          <li><a href="#">피아노</a></li>
+          <li><a href="#">기타</a></li>
+          <li><a href="#">드럼</a></li>
+        </ul>
+      </div>
+      <div class="pro-electron">
+        <ul class="pro-electron-list">
+          <li>
+            <a href="#"><b>신디사이저</b></a>
+          </li>
+          <li>
+            <a href="#"><b>스피커</b></a>
+          </li>
+          <li>
+            <a href="#"><b>헤드폰</b> </a>
+          </li>
+          <li>
+            <a href="#"><b>프로오디오</b></a>
+          </li>
+          <li>
+            <a href="#"><b>어플리케이션</b></a>
+          </li>
+        </ul>
+        <figure><img src="./img/product2.png" alt="전자제품" /></figure>
+      </div>
+      <div class="btn-wrap">
+        <a href="#" class="btn-online">온라인몰 바로가기</a>
+      </div>
+      <div class="pro-video">
+        <!-- 동영상 리스트 -->
+        <!-- <div class="pro-video-img">
+            <ul>
+              <li>
+                <a href="#"><img src="" alt="" /></a>
+              </li>
+              <li>
+                <a href="#"><i class="hidden">영상</i></a>
+              </li>
+              <li>
+                <a href="#"><i class="hidden">영상</i></a>
+              </li>
+            </ul>
+          </div> -->
+        <!-- 슬라이더 버튼 -->
+
+        <button type="button" class="btn-before-black">
+          <i class="hidden">이전</i>
+        </button>
+        <button type="button" class="btn-after-black">
+          <i class="hidden">다음</i>
+        </button>
+      </div>
+    </section>
+
+    <section class="news">
+      <div class="inner">
+        <div class="sec-tit">
+          <h3>news</h3>
+        </div>
+        <ul class="news-list">
+          <li>
+            <strong>Event</strong>
+            <h4>부산점 OPEN</h4>
+            <p>Event</p>
+            <a href="#" class="btn-news"><i class="hidden">바로가기</i></a>
+          </li>
+          <li>
+            <strong>News</strong>
+            <h4>채용공고 안내</h4>
+            <p>야마하 뮤직 코리아</p>
+            <a href="#" class="btn-news"><i class="hidden">바로가기</i></a>
+          </li>
+          <li>
+            <strong>Show</strong>
+            <h4>일렉기타 세미나</h4>
+            <p>with. 기타리스트 양재인</p>
+            <a href="#" class="btn-news"><i class="hidden">바로가기</i></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="artist">
+      <div class="inner">
+        <div class="sec-tit">
+          <h2>artist</h2>
+        </div>
+
+        <div class="artist-slider-wrap">
+
+          <div class="swiper artist-slider">
+
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+
+                <div class="artist-list">
+                  <figure><img src="./img/artist.png" alt="윤상" /></figure>
+                  <div class="artist-con">
+                    <h4>윤상</h4>
+                    <strong>작곡가, 음악 프로듀서</strong>
+                    <p>
+                      컴퓨터와 MIDI 그리고 신디사이저의 선구적인 아티스트로 현재
+                      가수, 프로듀서, 음악감독, 라디오DJ, 교수 등 꾸준하게 왕성한
+                      활동을 하고 있습니다.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="swiper-slide">
+
+                <div class="artist-list">
+                  <figure><img src="./img/artist.png" alt="윤상" /></figure>
+                  <div class="artist-con">
+                    <h4>윤상윤상</h4>
+                    <strong>작곡가, 음악 프로듀서</strong>
+                    <p>
+                      컴퓨터와 MIDI 그리고 신디사이저의 선구적인 아티스트로 현재
+                      가수, 프로듀서, 음악감독, 라디오DJ, 교수 등 꾸준하게 왕성한
+                      활동을 하고 있습니다.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="swiper-slide">
+
+                <div class="artist-list">
+                  <figure><img src="./img/artist.png" alt="윤상" /></figure>
+                  <div class="artist-con">
+                    <h4>윤상윤상윤상</h4>
+                    <strong>작곡가, 음악 프로듀서</strong>
+                    <p>
+                      컴퓨터와 MIDI 그리고 신디사이저의 선구적인 아티스트로 현재
+                      가수, 프로듀서, 음악감독, 라디오DJ, 교수 등 꾸준하게 왕성한
+                      활동을 하고 있습니다.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <button type="button" class="btn-before-white">
+              <i class="hidden">이전</i>
+            </button>
+            <button type="button" class="btn-after-white">
+              <i class="hidden">다음</i>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="btn-wrap">
+          <a href="#" class="btn-more">더보기</a>
+        </div>
+
+        <!-- <div class="artist-list-wrap">
+          <div class="artist-list">
+            <figure><img src="./img/artist.png" alt="윤상" /></figure>
+            <div class="artist-con">
+              <h4>윤상</h4>
+              <strong>작곡가, 음악 프로듀서</strong>
+              <p>
+                컴퓨터와 MIDI 그리고 신디사이저의 선구적인 아티스트로 현재
+                가수, 프로듀서, 음악감독, 라디오DJ, 교수 등 꾸준하게 왕성한
+                활동을 하고 있습니다.
+              </p>
+            </div>
+          </div>
+          <button type="button" class="btn-before-white">
+            <i class="hidden">이전</i>
+          </button>
+          <button type="button" class="btn-after-white">
+            <i class="hidden">다음</i>
+          </button>
+          <div class="btn-wrap">
+            <a href="#" class="btn-more">더보기</a>
+          </div>
+        </div> -->
+
+
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="inner">
+        <div class="story-con">
+          <h4>story</h4>
+          <strong>YAMAHA</strong>
+          <p>소리와 음악의 힘에 대한 믿음으로 새로운 미래를 도전합니다.</p>
+        </div>
+        <ul class="story-list">
+          <li>
+            <strong>기술 및 디자인</strong>
+            <p>
+              독자적인 기술과 풍부한 감성으로 새로운 가치와 즐거움을
+              창조합니다.
+            </p>
+            <a href="#" class="btn-story-list">자세히보기</a>
+          </li>
+          <li>
+            <strong>철학과 비전</strong>
+            <p>세계인의 well-being을 목표로 나아갑니다.</p>
+            <a href="#" class="btn-story-list">자세히보기</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="music-school">
+      <div class="inner">
+        <div class="sec-tit">
+          <h5>Music School</h5>
+        </div>
+        <div class="music-school-con">
+          <strong>음악교실</strong>
+          <h4>신입생 모집 및 무료 체험 교실</h4>
+          <p>
+            음악과 함께하는 삶, 음악이 있어 다른 삶을 우리 아이에게
+            선물하세요.
+          </p>
+          <a href="#" class="btn-school">신청하기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="inner">
+      <div class="foot">
+        <div class="foot-yamaha-ko">
+          <h6>야마하 뮤직 코리아</h6>
+          <dl>
+            <dt>주소</dt>
+            <dd>서울특별시 강남구 강남대로 298, 11층</dd>
+          </dl>
+          <dl>
+            <dt>대표이사</dt>
+            <dd>Yuji Matsuok</dd>
+          </dl>
+          <dl>
+            <dt>사업자번호</dt>
+            <dd>220-86-19131</dd>
+          </dl>
+          <dl>
+            <dt>TEL</dt>
+            <dd>080-004-0022</dd>
+          </dl>
+        </div>
+        <div class="foot-service">
+          <h6>고객 서비스</h6>
+          <dl>
+            <dt>고객센터</dt>
+            <dd>080-004-0022</dd>
+          </dl>
+          <dl>
+            <dt>운영시간</dt>
+            <dd>AM 9:00 ~ PM 6:00</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="foot-logo"><i class="hidden">야마하로고</i></div>
+
+      <div class="yamaha-service">
+        <ul>
+          <li>
+            <a href="#">
+              <p>문의하기</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <p>A/S 센터</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <p>배송 문의</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="foot-info">
+        <ul>
+          <li>
+            <a href="#">
+              <p>이용약관</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <p>개인정보 처리방침</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <p>소셜 미디어 정책</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <p>쿠키 및 유사 기술 사용 안내</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-info2">
+      <p>
+        본 사이트의 컨텐츠는 저작권법의 보호를 받는 바, 상업적 목적의
+        무단복사, 배포 등을 금합니다.
+      </p>
+    </div>
+  </footer>
+
+  <div class="quick-menu">
+    <a href="https://www.youtube.com/@yamahamusickorea" class="btn-youtube"><i class="hidden">유튜브</i></a>
+    <a href="http://https://blog.naver.com/ymkpa" class="btn-blog"><i class="hidden">블로그</i></a>
+    <a href="https://www.instagram.com/yamaha_music_kr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+      class="btn-insta"><i class="hidden">인스타그램</i></a>
+    <a href="#top" class="btn-top"><i class="hidden">위로</i></a>
+  </div>
+</body>
+
+</html>
