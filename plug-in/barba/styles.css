@@ -1,0 +1,9 @@
+body {
+  font-family: Arial, sans-serif;
+}
+nav {
+  margin-bottom: 20px;
+}
+.barba-container {
+  transition: opacity 0.5s;
+}
