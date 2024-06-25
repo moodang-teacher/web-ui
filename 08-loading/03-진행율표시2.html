@@ -63,11 +63,12 @@
       // 현재 로딩된 이미지 수
       let imgLoaded = 0;
 
+      // 부드러운 진행률을 위한 변수
+      let current = 0;
 
       // 이미지를 로딩할 때 마다 imgLoaded를 증가
       imgLoad.on('progress', function () {
         imgLoaded++;
-        console.log(imgLoaded);
       });
 
       // 진행 상황을 파악해서 할 일을 하는 함수
@@ -75,22 +76,30 @@
         // 진행율 계산
         let percent = (imgLoaded / imgTotal) * 100;
 
+        // 부드러운 갱신
+        current += (percent - current) * 0.07;
+
         // 진행 정보를 업데이트
-        $progressText.text(Math.floor(percent) + '%');
+        $progressText.text(Math.round(current) + '%');
 
         // $progressBar 업데이트
-        $progressBar.css('width', Math.floor(percent) + '%');
+        $progressBar.css('width', Math.round(current) + '%');
+
+        console.log(imgLoaded, percent, current);
 
         // 로딩이 완료되었을 때
-        if (percent >= 100) {
+        if (Math.round(current) >= 100) {
           clearInterval(progressTimer);
-          console.log('로딩 완료!');
+
+          const tl = gsap.timeline();
+          tl.to($progressBar, { xPercent: 100 });
+          tl.to($progressText, { scale: 2, autoAlpha: 0 }, '-=0.5');
+          tl.to($progress, { bottom: '100%' });
         }
       }
 
       // 1초에 60번 진행 상황을 파악 반복
       const progressTimer = setInterval(updateProgress, 1000 / 60);
-
     })
   </script>
 </head>
