@@ -43,7 +43,15 @@
     $(function () {
       const $window = $(window);
       const $body = $('body');
-      const $loading = $('.loading');
+      let $loading = `<div class="loading">
+                        <p>loading...</p>
+                      </div>`;
+
+      // loading 구조 삽입
+      $body.append($loading);
+
+      // jQuery 객체로 만들기
+      $loading = $('.loading');
 
       $window.on('load', function () {
         // 로딩 완료 후 1초 뒤에 사라지게
@@ -56,10 +64,6 @@
 </head>
 
 <body>
-  <div class="loading">
-    <p>loading...</p>
-  </div>
-
   <img src="https://media.timeout.com/images/105918414/image.jpg" alt="" />
   <img src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1136588786.jpg" alt="" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Blackpink_Coachella_2023_02_%28cropped%29.jpg" alt="" />

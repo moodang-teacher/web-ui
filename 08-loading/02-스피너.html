@@ -7,14 +7,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>loading</title>
 
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .spinner {
+      margin: 100px auto;
+      width: 40px;
+      height: 40px;
+      position: relative;
+    }
+
+    .cube1,
+    .cube2 {
+      background-color: #fff;
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+      animation: sk-cubemove 1.8s infinite ease-in-out;
+    }
+
+    .cube2 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+
+    @-webkit-keyframes sk-cubemove {
+      25% {
+        -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5)
+      }
+
+      50% {
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg)
+      }
+
+      75% {
+        -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)
+      }
+
+      100% {
+        -webkit-transform: rotate(-360deg)
+      }
+    }
+
+    @keyframes sk-cubemove {
+      25% {
+        transform: translateX(42px) rotate(-90deg) scale(0.5);
+        -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+      }
+
+      50% {
+        transform: translateX(42px) translateY(42px) rotate(-179deg);
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+      }
+
+      50.1% {
+        transform: translateX(42px) translateY(42px) rotate(-180deg);
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+      }
+
+      75% {
+        transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+        -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+      }
+
+      100% {
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+      }
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      const $window = $(window);
+      const $body = $('body');
+      let $loading = `<div class="loading">
+                        <div class="spinner">
+                          <div class="cube1"></div>
+                          <div class="cube2"></div>
+                        </div>
+                      </div>`;
+
+      // loading 구조 삽입
+      $body.append($loading);
+
+      // jQuery 객체로 만들기
+      $loading = $('.loading');
+
+      $window.on('load', function () {
+        // 로딩 완료 후 1초 뒤에 사라지게
+        setTimeout(function () {
+          $loading.fadeOut();
+        }, 1000);
+      })
+    })
+  </script>
 </head>
 
 <body>
-  <div class="loading">
-    <p>loading...</p>
-  </div>
-
   <img src="https://media.timeout.com/images/105918414/image.jpg" alt="" />
   <img src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1136588786.jpg" alt="" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Blackpink_Coachella_2023_02_%28cropped%29.jpg" alt="" />
