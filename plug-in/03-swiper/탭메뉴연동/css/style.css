@@ -1,0 +1,278 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+body {
+  font: 1rem/1.5 'Noto Sans KR', sans-serif;
+  color: #555;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: #ff5c00;
+}
+
+.hidden {
+  position: absolute;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.inner {
+  width: 1290px;
+  margin: 0 auto;
+}
+
+.heroes {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.title h1 {
+  font-weight: 700;
+  font-size: 60px;
+  color: #000;
+}
+
+.title p {
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 16px;
+}
+
+.tab-wrap {
+  margin-top: 90px;
+}
+
+.tab-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 680px;
+  margin: 0 auto;
+}
+
+/* 탭메뉴 공통 */
+.tab-menu a {
+  width: 158px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #000;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+
+  transition: 0.3s;
+}
+
+/* 탭메뉴 활성화 표시 */
+.tab-menu a.on {
+  background: #ff5c00;
+  border-color: #ff5c00;
+  color: #fff;
+}
+
+/* 탭메뉴 아이콘 공통 */
+.tab-menu a::before {
+  content: '';
+  display: block;
+  width: 31px;
+  height: 31px;
+  background: no-repeat 0 0 / cover;
+}
+
+/* 탭메뉴 영웅별 아이콘 */
+.tab-menu a.tab-all::before {
+  background-image: url(../img/all-w.png);
+}
+.tab-menu a.tab-tank::before {
+  background-image: url(../img/tank-b.png);
+}
+.tab-menu a.tab-damage::before {
+  background-image: url(../img/damage-b.png);
+}
+.tab-menu a.tab-support::before {
+  background-image: url(../img/support-b.png);
+}
+
+.tab-con {
+  margin-top: 63px;
+}
+.hero-slider-wrap {
+  border: 1px solid #000;
+  position: relative;
+}
+
+.hero-slider {
+  background: #ff5;
+  overflow: hidden;
+  padding-bottom: 70px;
+}
+
+.hero-slider-wrap .btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 70px;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  z-index: 10;
+}
+.hero-slider-wrap .btn.btn-prev {
+  left: -110px;
+}
+.hero-slider-wrap .btn.btn-next {
+  right: -110px;
+}
+
+.hero-list li {
+  width: 410px;
+  height: 410px;
+  border: 1px solid #afafaf;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+/* 뱃지 */
+.badge {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: no-repeat 0 0 / cover;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 10;
+  transition: all ease-out 0.5s;
+}
+
+/* 영웅별 뱃지 이미지 */
+.badge.badge-damage {
+  background-image: url(../img/damage-w.png);
+}
+.badge.badge-tank {
+  background-image: url(../img/tank-w.png);
+}
+.badge.badge-support {
+  background-image: url(../img/support-w.png);
+}
+
+.hero-list figure {
+  height: 301px;
+}
+
+.hero-list figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-list dl {
+  padding: 20px;
+}
+
+.hero-list dl dt {
+  font-weight: 700;
+  font-size: 28px;
+  color: #000;
+}
+.hero-list dl dd {
+  font-weight: 700;
+  font-size: 18px;
+  color: #ff5c00;
+}
+
+.hero-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff5c00;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+
+  transform: perspective(1000px) rotateX(180deg);
+  transform-origin: 50% 0;
+  transition: all ease-out 0.5s;
+}
+
+.hero-list li:hover .hero-info {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.hero-list li:hover .badge {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-info h2 {
+  font-weight: 700;
+  font-size: 32px;
+}
+.hero-info strong {
+  display: block;
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.hero-info p {
+  margin-top: 12px;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 304px;
+  height: 76px;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 60px;
+  margin-top: 100px;
+  transition: 0.3s;
+}
+
+/* 호버 효과 */
+.tab-menu a:hover,
+.more:hover {
+  box-shadow: inset 0 0 0 3px #000;
+}
+
+/* tabMenu 연동 */
+.tab-con > div {
+  border: 1px solid #000;
+}
+
+.tab-con .swiper-slide > h2 {
+  font-size: 2rem;
+  color: #000;
+}
+
+.tab-con .swiper-slide > h2 + h3 {
+  font-weight: bold;
+  font-size: 3.5rem;
+}
