@@ -47,15 +47,12 @@
   <script>
     $(function () {
       const $body = $('body');
-
       const $progress = $('.progress');
       const $progressBar = $('.progress-bar');
       const $progressText = $('.progress-text');
 
-
       // 이미지 로딩 상태를 확인하는 imagesLoaded() 사용
       const imgLoad = imagesLoaded($body);
-      // console.log(imgLoad);
 
       // 로드할 이미지의 전체 갯수
       const imgTotal = imgLoad.images.length;
@@ -81,17 +78,13 @@
 
         // 진행 정보를 업데이트
         $progressText.text(Math.round(current) + '%');
-
-        // $progressBar 업데이트
         $progressBar.css('width', Math.round(current) + '%');
 
-        console.log(imgLoaded, percent, current);
-
-
         // 로딩이 완료되었을 때
-        if (Math.round(current) >= 100) {
-          clearInterval(progressTimer);
-
+        if (Math.round(current) < 100) {
+          requestAnimationFrame(updateProgress);
+        } else {
+          // 로딩 완료 애니메이션
           const tl = gsap.timeline();
           tl.to($progressBar, { xPercent: 100 });
           tl.to($progressText, { scale: 2, autoAlpha: 0 }, '-=0.5');
@@ -99,9 +92,11 @@
         }
       }
 
-      // 1초에 60번 진행 상황을 파악 반복
-      const progressTimer = setInterval(updateProgress, 1000 / 60);
-    })
+      // 첫 번째 애니메이션 프레임을 요청
+      // requestAnimationFrame(updateProgress);
+      updateProgress()
+    });
+
   </script>
 </head>
 

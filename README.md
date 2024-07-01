@@ -1,1 +1,1 @@
-# web-ui
+# web UI 만들기 (feat. jQuery)
