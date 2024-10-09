@@ -57,7 +57,8 @@ body {
 
 .blackpink-slider2 {
 	width: 80%;
-	height: 500px;
+	/* height: 500px; */
+	aspect-ratio: 1/0.3;
 	margin: 50px auto;
 	border: 10px solid #00f;
 

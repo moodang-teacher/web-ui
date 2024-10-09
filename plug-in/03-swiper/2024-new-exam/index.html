@@ -35,9 +35,25 @@
 
       const blackpinkSlider2 = new Swiper('.blackpink-slider2 .swiper', {
         loop: true,
-        slidesPerView: '3.5',
+        // slidesPerView: '3.5',
         spaceBetween: 30,
         centeredSlides: true,
+        slidesPerView: 1,
+
+        // Responsive breakpoints
+        breakpoints: {
+
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+          // when window width is >= 1200px
+          1200: {
+            slidesPerView: 3.5,
+            spaceBetween: 40
+          }
+        },
 
 
         // If we need pagination
@@ -50,6 +66,8 @@
           nextEl: '.blackpink-slider2 .btn-next',
           prevEl: '.blackpink-slider2 .btn-prev',
         },
+
+
 
       });
     })
