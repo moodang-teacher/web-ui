@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>new Swiper()를 사용한다는 것</title>
+</head>
+
+<body>
+  <script>
+    class Car {
+      constructor(maker, model) {
+        this.maker = maker;
+        this.model = model;
+      }
+
+      // method
+      start() {
+        console.log(`${this.maker} ${this.model}가 시동을 겁니다.`);
+      }
+
+      drive(speed) {
+        console.log(`${this.maker} ${this.model}가 ${speed}km/h로 달립니다.`);
+      }
+    }
+
+    const myCar = new Car('KIA', 'K7');
+    const wifeCar = new Car('BMW', 'MINI');
+
+    console.log(myCar, wifeCar);
+    myCar.start();
+    wifeCar.start();
+    myCar.drive(100);
+    wifeCar.drive(80);
+  </script>
+</body>
+
+</html>
