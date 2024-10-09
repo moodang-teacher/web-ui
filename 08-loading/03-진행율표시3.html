@@ -81,19 +81,30 @@
         $progressBar.css('width', Math.round(current) + '%');
 
         // 로딩이 완료되었을 때
-        if (Math.round(current) < 100) {
-          requestAnimationFrame(updateProgress);
-        } else {
+        if (Math.round(current) >= 100) {
+          cancelAnimationFrame(updateProgress);
+
           // 로딩 완료 애니메이션
           const tl = gsap.timeline();
           tl.to($progressBar, { xPercent: 100 });
           tl.to($progressText, { scale: 2, autoAlpha: 0 }, '-=0.5');
           tl.to($progress, { bottom: '100%' });
         }
+        // 첫 번째 애니메이션 프레임을 요청
+        requestAnimationFrame(updateProgress);
+
+        // 로딩이 완료되었을 때 - 2번과의 순차적용을 생각해보면 위 코드가 나을듯
+        // if (Math.round(current) < 100) {
+        //   requestAnimationFrame(updateProgress);
+        // } else {
+        //   // 로딩 완료 애니메이션
+        //   const tl = gsap.timeline();
+        //   tl.to($progressBar, { xPercent: 100 });
+        //   tl.to($progressText, { scale: 2, autoAlpha: 0 }, '-=0.5');
+        //   tl.to($progress, { bottom: '100%' });
+        // }
       }
 
-      // 첫 번째 애니메이션 프레임을 요청
-      // requestAnimationFrame(updateProgress);
       updateProgress()
     });
 
