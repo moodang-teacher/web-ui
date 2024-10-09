@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/style.css">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const blackpinkSlider = new Swiper('.blackpink-slider', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        effect: 'cube',
+
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.blackpink-slider .btn-next',
+          prevEl: '.blackpink-slider .btn-prev',
+        },
+
+      });
+
+
+      const blackpinkSlider2 = new Swiper('.blackpink-slider2 .swiper', {
+        loop: true,
+        slidesPerView: '3.5',
+        spaceBetween: 30,
+        centeredSlides: true,
+
+
+        // If we need pagination
+        pagination: {
+          el: '.paging',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.blackpink-slider2 .btn-next',
+          prevEl: '.blackpink-slider2 .btn-prev',
+        },
+
+      });
+    })
+  </script>
+</head>
+
+<body>
+
+  <!-- Slider main container -->
+  <div class="swiper blackpink-slider">
+
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src="./img/a610pkwnq1p91.webp" alt=""></div>
+      <div class="swiper-slide"><img src="./img/blackpink-0k.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="./img/blackpink-4k_3840x2160.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="./img/blackpink.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="./img/Blackpink.webp" alt=""></div>
+      <div class="swiper-slide"><img src="./img/blackpink_the_Album_concept_all_group.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="./img/desktop-hd-blackpink.jpg" alt=""></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <button type="button" class="btn-prev">이전</button>
+    <button type="button" class="btn-next">다음</button>
+  </div>
+
+
+  <!-- 두번째 슬라이더 -->
+  <div class="blackpink-slider2">
+    <button type="button" class="btn-prev">이전</button>
+    <button type="button" class="btn-next">다음</button>
+
+    <!-- 사용자 정의 pagination -->
+    <div class="paging">
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+    </div>
+
+
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="./img/a610pkwnq1p91.webp" alt=""></div>
+        <div class="swiper-slide"><img src="./img/blackpink-0k.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/blackpink-4k_3840x2160.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/blackpink.jpeg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/Blackpink.webp" alt=""></div>
+        <div class="swiper-slide"><img src="./img/blackpink_the_Album_concept_all_group.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/desktop-hd-blackpink.jpg" alt=""></div>
+      </div>
+      <!-- If we need pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+    </div>
+  </div>
+</body>
+
+</html>
