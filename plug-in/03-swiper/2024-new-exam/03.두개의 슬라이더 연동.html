@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>두개의 슬라이더 연동</title>
+
+  <!-- 
+    1. swiper.js 6.8.4버전 사용
+    2. .swiper에 overflow: hidden이 없으니 적용해야함
+    3. loopedSlides: 7, // 슬라이드 갯수와 맞추자
+  -->
+
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./css/style3.css" />
+
+  <script src="./js/swiper-bundle.min.js"></script>
+  <script src="./js/script3.js" defer></script>
+</head>
+
+<body>
+  <div class="slider-wrap">
+    <!-- 커스텀 버튼 -->
+    <button type="button" class="btn-prev">이전</button>
+    <button type="button" class="btn-next">다음</button>
+
+    <div class="swiper top-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./img/a610pkwnq1p91.webp" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink-0k.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink-4k_3840x2160.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink.jpeg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/Blackpink.webp" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink_the_Album_concept_all_group.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/desktop-hd-blackpink.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper bottom-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./img/a610pkwnq1p91.webp" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink-0k.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink-4k_3840x2160.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink.jpeg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/Blackpink.webp" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/blackpink_the_Album_concept_all_group.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/desktop-hd-blackpink.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
