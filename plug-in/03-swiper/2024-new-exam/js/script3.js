@@ -2,6 +2,7 @@ const topSlider = new Swiper('.top-slider', {
 	loop: true,
 	slidesPerView: 1,
 	loopedSlides: 7, // 슬라이드 갯수와 맞추자
+	autoplay: { delay: 5000 }, // 연동되어 있으니 어느 슬라이더에 주던 상관없음
 
 	effect: 'fade',
 
