@@ -1,92 +1,88 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>부드럽게</title>
-  <style>
-    body {
-      background: #000;
-      /* cursor: none; */
-      height: 100vh;
-    }
-
-    h1 {
-      color: #fff;
-    }
-
-    .cursor {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: rgba(255, 0, 0, 0.7);
-    }
-  </style>
-  <script src="./js/jquery-3.3.1.min.js"></script>
-  <script>
-    $(function () {
-      // 대상을 변수에 저장
-      const $window = $(window);
-      const $info = $('.info');
-      const $cursor = $('.cursor');
-
-      // 마우스 좌표값
-      let x = 0;
-      let y = 0;
-
-      // 수정되는 좌표값 : 6만원짜리
-      let mx = 0;
-      let my = 0;
-
-      // 기본 속도
-      let speed = 0.08;
-
-      // 마우스가 움직이면 
-      $window.on('mousemove', function (e) {
-
-        // 좌표값 가져와서 x, y변수에 할당
-        console.log(e);
-        x = e.pageX;
-        y = e.pageY;
-
-      })
-
-
-      // 마우스 위치값을 기본으로 해서 어떤 값을 만들자
-      function moving() {
-        // 이게 6만원, 애니메이션 동작 만드는 공식이라고 생각하세요.
-        mx += (x - mx) * speed;
-        my += (y - my) * speed;
-
-        // cursor의 좌표값으로 적용
-        $cursor.css({
-          left: mx,
-          top: my
-        });
-
-        // info 창에 정보 뿌리기
-        $info.html(`mx: ${mx}<br>my: ${my}`);
-
-        // 부드러운 반복
-        requestAnimationFrame(moving);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부드럽게</title>
+    <style>
+      body {
+        background: #000;
+        /* cursor: none; */
+        height: 100vh;
       }
 
-      // 함수의 실행
-      moving();
-    })
-  </script>
-</head>
+      h1 {
+        color: #fff;
+      }
 
-<body>
-  <!-- 좌표값을 뿌릴 공간 -->
-  <h1 class="info">test</h1>
+      .cursor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(255, 0, 0, 0.7);
+      }
+    </style>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        // 대상을 변수에 저장
+        const $window = $(window);
+        const $info = $(".info");
+        const $cursor = $(".cursor");
 
-  <!-- 가짜 커서 -->
-  <div class="cursor"></div>
-</body>
+        // 마우스 좌표값
+        let x = 0;
+        let y = 0;
 
+        // 수정되는 좌표값 : 6만원짜리
+        let mx = 0;
+        let my = 0;
+
+        // 기본 속도
+        let speed = 0.08;
+
+        // 마우스가 움직이면
+        $window.on("mousemove", function (e) {
+          // 좌표값 가져와서 x, y변수에 할당
+          console.log(e);
+          x = e.pageX;
+          y = e.pageY;
+        });
+
+        // 마우스 위치값을 기본으로 해서 어떤 값을 만들자
+        function moving() {
+          // 이게 6만원, 애니메이션 동작 만드는 공식이라고 생각하세요.
+          mx += (x - mx) * speed;
+          my += (y - my) * speed;
+
+          // cursor의 좌표값으로 적용
+          $cursor.css({
+            left: mx,
+            top: my,
+          });
+
+          // info 창에 정보 뿌리기
+          $info.html(`mx: ${mx}<br>my: ${my}`);
+
+          // 부드러운 반복 : 애니메이션을 부드럽고 효율적으로 실행하도록 최적화된 프레임 속도로 적용해주는 함수
+          setTimeout(moving, 1000 / 60);
+          // requestAnimationFrame(moving);
+        }
+
+        // 함수의 실행
+        moving();
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- 좌표값을 뿌릴 공간 -->
+    <h1 class="info">test</h1>
+
+    <!-- 가짜 커서 -->
+    <div class="cursor"></div>
+  </body>
 </html>
