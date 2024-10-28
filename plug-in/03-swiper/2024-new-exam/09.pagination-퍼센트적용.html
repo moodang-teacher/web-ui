@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>swiper.js 기본 적용</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      ul,
+      ol,
+      li {
+        list-style: none;
+      }
+
+      img {
+        vertical-align: top;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .top-slider-wrap {
+        width: 80%;
+        height: 500px;
+        margin: 50px auto;
+        border: 10px solid #000;
+        position: relative;
+      }
+
+      .top-slider-wrap .top-slider {
+        height: 100%;
+      }
+
+      .top-slider-wrap .btn-prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -70px;
+        width: 50px;
+        height: 50px;
+        background: #000;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+      }
+
+      .top-slider-wrap .btn-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -70px;
+        width: 50px;
+        height: 50px;
+        background: #000;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+      }
+
+      .top-slider-wrap .pagination {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+      }
+
+      .top-slider-wrap .swiper-pagination-bullet {
+        width: 70px;
+        height: 10px;
+        border-radius: 0;
+        border: 1px solid #000;
+        background: #fff;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .top-slider-wrap .swiper-pagination-bullet-active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background: #000;
+        animation: progressBar 4s linear both; /* delay 시간과 동일하게 설정 */
+      }
+
+      @keyframes progressBar {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="top-slider-wrap">
+      <!-- 커스텀 버튼 -->
+      <!-- button:button.btn-*2 -->
+      <button type="button" class="btn-prev">이전</button>
+      <button type="button" class="btn-next">다음</button>
+
+      <div class="pagination"></div>
+
+      <div class="swiper top-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./img/blackpink-4k_3840x2160.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./img/blackpink.jpeg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./img/Blackpink.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./img/blackpink_the_Album_concept_all_group.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./img/desktop-hd-blackpink.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const topSlider = new Swiper(".top-slider", {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+        },
+        speed: 1000,
+
+        // If we need pagination
+        pagination: {
+          el: ".top-slider-wrap .pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '"></span>';
+          },
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".top-slider-wrap .btn-next",
+          prevEl: ".top-slider-wrap .btn-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
