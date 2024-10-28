@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pagination(fraction) & scrollbar</title>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <style>
+      .my-slider-wrap {
+        width: 80%;
+        height: 500px;
+        margin: 50px auto;
+        border: 10px solid #eee;
+      }
+      .my-slider {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10vw;
+      }
+
+      .my-pagination {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        width: auto;
+        transform: translateX(-50%);
+        font-size: 2vw;
+      }
+    </style>
+
+    <div class="my-slider-wrap">
+      <div class="swiper my-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="my-pagination"></div>
+        <!-- Add Scrollbar -->
+        <div class="my-scrollbar"></div>
+      </div>
+    </div>
+
+    <script>
+      const mySlider = new Swiper(".my-slider", {
+        loop: true,
+        autoplay: true,
+
+        pagination: {
+          el: ".my-pagination",
+          type: "fraction",
+        },
+      });
+
+      const progressBar = new Swiper(".my-slider", {
+        pagination: {
+          el: ".my-scrollbar",
+          type: "progressbar",
+        },
+      });
+
+      mySlider.controller.control = progressBar;
+    </script>
+  </body>
+</html>
