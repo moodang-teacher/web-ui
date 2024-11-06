@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      ol,
+      li {
+        list-style: none;
+      }
+      img {
+        vertical-align: top;
+      }
+
+      .box {
+        width: 1000px;
+        height: 500px;
+        border: 1px solid #000;
+        margin-left: auto;
+        margin-top: 200px;
+
+        display: flex;
+        gap: 50px;
+        overflow: hidden;
+      }
+
+      .swiper {
+        width: 300px;
+        height: 100%;
+        background: rgba(0, 255, 0, 0.3);
+      }
+
+      .swiper-wrapper {
+        transition-timing-function: linear;
+      }
+
+      .swiper-slide {
+        border: 1px solid #000;
+        font-size: 4rem;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="swiper left-slider">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+          <div class="swiper-slide">Slide 10</div>
+        </div>
+      </div>
+      <div class="swiper right-slider">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+          <div class="swiper-slide">Slide 10</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const leftSlider = new Swiper(".left-slider", {
+        direction: "vertical",
+        autoplay: {
+          delay: 0, // CSS 수정과 함께 사용 transition-timing-function: linear;
+        },
+        speed: 2000,
+        loop: true,
+        // loopedSlides: 1,
+        loopAdditionalSlides: 1, // 이전 버전의 swiper.js를 붙힐 것
+        slidesPerView: 3, // 한번에 보여줄 슬라이드 개수
+        spaceBetween: 20, // 슬라이드 사이 여백
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      const rightSlider = new Swiper(".right-slider", {
+        direction: "vertical",
+        autoplay: {
+          delay: 0, // CSS 수정과 함께 사용 transition-timing-function: linear;
+          reverseDirection: true,
+        },
+        speed: 2000,
+        loop: true,
+        // loopedSlides: 1,
+        loopAdditionalSlides: 1, // 이전 버전의 swiper.js를 붙힐 것
+        slidesPerView: 3, // 한번에 보여줄 슬라이드 개수
+        spaceBetween: 20, // 슬라이드 사이 여백
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      $(".left-slider").on("mouseover", function () {
+        leftSlider.autoplay.stop();
+      });
+      $(".left-slider").on("mouseout", function () {
+        leftSlider.autoplay.start();
+      });
+
+      // let $slides = document.querySelectorAll(".swiper-slide");
+      // for (let i of $slides) {
+      //   i.addEventListener("mouseover", function () {
+      //     swiper.autoplay.stop();
+      //   });
+      //   i.addEventListener("mouseout", function () {
+      //     swiper.autoplay.start();
+      //   });
+      // }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      ol,
+      li {
+        list-style: none;
+      }
+      .box {
+        width: 1000px;
+        height: 500px;
+        border: 1px solid #000;
+        margin-left: auto;
+        margin-top: 200px;
+
+        display: flex;
+        gap: 50px;
+        overflow: hidden;
+      }
+      .left ul {
+        animation: testAni 10s linear infinite;
+      }
+      .right ul {
+        animation: testAni 10s linear infinite reverse;
+      }
+      ul li {
+        width: 150px;
+        height: 150px;
+        padding: 20px;
+        box-sizing: content-box;
+        /* margin: 30px 0; */
+      }
+      ul li:nth-child(1) {
+        background: red;
+      }
+      ul li:nth-child(2) {
+        background: orange;
+      }
+      ul li:nth-child(3) {
+        background: yellow;
+      }
+      ul li:nth-child(4) {
+        background: green;
+      }
+      ul li:nth-child(5) {
+        background: skyblue;
+      }
+      ul li:nth-child(6) {
+        background: blue;
+      }
+      ul li:nth-child(7) {
+        background: navy;
+      }
+      ul li:nth-child(8) {
+        background: blueviolet;
+      }
+      ul li:nth-child(9) {
+        background: purple;
+      }
+      ul li:nth-child(10) {
+        background: darkslateblue;
+      }
+
+      @keyframes testAni {
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="left">
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+          <li>item 5</li>
+          <li>item 6</li>
+          <li>item 7</li>
+          <li>item 8</li>
+          <li>item 9</li>
+          <li>item 10</li>
+        </ul>
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+          <li>item 5</li>
+          <li>item 6</li>
+          <li>item 7</li>
+          <li>item 8</li>
+          <li>item 9</li>
+          <li>item 10</li>
+        </ul>
+      </div>
+      <div class="right">
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+          <li>item 5</li>
+          <li>item 6</li>
+          <li>item 7</li>
+          <li>item 8</li>
+          <li>item 9</li>
+          <li>item 10</li>
+        </ul>
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+          <li>item 5</li>
+          <li>item 6</li>
+          <li>item 7</li>
+          <li>item 8</li>
+          <li>item 9</li>
+          <li>item 10</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
