@@ -1,0 +1,169 @@
+@charset 'utf-8';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow: hidden; /* 전체 스크롤 방지 */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    perspective: 2000px; /* 3D 효과를 위한 perspective 증가 */
+}
+
+.cat {
+    width: 245px;
+    height: 184px;
+    background: url(./img/cat.png) no-repeat 0 0;
+
+    /* transform: translateX(10px); */
+    animation: catRunning 0.3s infinite steps(6); /* steps() : 프레임 애니메이션 구현 */
+}
+
+@keyframes catRunning {
+    100% {
+        background-position: -1470px 0;
+    }
+}
+
+/* 전환 오버레이 */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff69b4, #ff8da1);
+    background: #fff;
+    pointer-events: none;
+    will-change: transform;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 전환 중인 컨테이너 스타일 */
+[data-barba='container'] {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    visibility: visible;
+    transform-origin: center center;
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* 전환 중에는 새로운 컨테이너가 absolute로 위치 */
+.barba-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.index {
+    background: linear-gradient(45deg, #ff6b6b, #ff8787);
+}
+
+.sub1 {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.sub2 {
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
+}
+
+.wrap {
+    height: 100vh;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+a {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+a:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+section {
+    height: 100vh;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+section h2 {
+    color: #fff;
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    transform: translateZ(50px);
+}
+
+/* Fade out current container */
+.fade-leave {
+    opacity: 1;
+}
+
+.fade-leave-active {
+    transition: opacity 0.3s linear;
+}
+
+.fade-leave-to {
+    opacity: 0;
+}
+
+/* Fade in the next container */
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    transition: opacity 0.3s linear;
+}
+
+.fade-enter-to {
+    opacity: 1;
+}

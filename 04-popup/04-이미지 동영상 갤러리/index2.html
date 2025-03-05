@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            ul,
+            ol,
+            li {
+                list-style: none;
+            }
+
+            .container {
+                width: 70%;
+                margin: 50px auto;
+                border: 10px solid #eee;
+                padding: 5vw;
+
+                columns: 200px;
+                column-gap: 10px;
+            }
+
+            .item {
+                border: 1px solid #000;
+                padding: 20px;
+                margin-bottom: 10px;
+
+                /* break-inside: avoid;
+                display: inline-block;
+                width: 100%; */
+            }
+
+            .wrap {
+                margin: 100px;
+                width: 100px;
+                height: 100px;
+                background: #ff5;
+                position: relative;
+            }
+            .box {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 70%;
+                height: 5px;
+                background: #000;
+            }
+
+            .hidden {
+                position: absolute;
+                margin: -1px;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <i class="hidden">TEST</i>
+            <div class="box"></div>
+        </div>
+
+        <ul class="container">
+            <li class="item">
+                item 01 item 01 item 01 item 01 item 01 item 01 item 01 item 01 item 01 item 01 item 01 item 01 item 01
+                item 01
+            </li>
+            <li class="item">item 02</li>
+            <li class="item">item 03</li>
+            <li class="item">item 04 item 04 item 04 item 04 item 04 item 04</li>
+            <li class="item">item 05</li>
+            <li class="item">item 06</li>
+            <li class="item">item 07</li>
+            <li class="item">item 08</li>
+            <li class="item">
+                item 09 item 09item 09item 09item 09item 09item 09item 09item 09item 09item 09item 09item 09item 09item
+                09item 09item 09
+            </li>
+            <li class="item">item 10</li>
+            <li class="item">item 11</li>
+            <li class="item">item 12</li>
+            <li class="item">item 13</li>
+            <li class="item">item 14</li>
+            <li class="item">
+                item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item
+                15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item
+                15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item 15item
+                15item 15item 15item 15item 15item 15item 15item 15item 15
+            </li>
+            <li class="item">item 16</li>
+            <li class="item">item 17</li>
+            <li class="item">item 18</li>
+            <li class="item">item 19</li>
+            <li class="item">item 20</li>
+        </ul>
+    </body>
+</html>

@@ -6,39 +6,49 @@ function resetScroll(data) {
 barba.init({
     transitions: [
         {
-            name: 'slide',
+            name: 'clock-rotation',
             leave(data) {
                 const done = this.async();
                 document.querySelector('body').style.overflow = 'hidden';
 
+                // 현재 페이지 회전하면서 사라짐
                 gsap.to(data.current.container, {
-                    duration: 0.5,
-                    x: window.innerWidth * -1,
+                    duration: 0.8,
+                    rotation: -180,
+                    scale: 0.8,
+                    opacity: 0,
                     ease: 'power2.inOut',
+                    transformOrigin: 'center center',
                     onComplete: done,
                 });
             },
             enter(data) {
                 const done = this.async();
 
-                // 시작 위치 설정
+                // 새 페이지 초기 설정
                 gsap.set(data.next.container, {
                     position: 'fixed',
-                    left: '100%',
                     top: 0,
+                    left: 0,
                     width: '100%',
+                    rotation: 180,
+                    scale: 0.8,
+                    opacity: 0,
+                    transformOrigin: 'center center',
                 });
 
+                // 새 페이지 회전하면서 나타남
                 gsap.to(data.next.container, {
-                    duration: 0.5,
-                    x: window.innerWidth * -1,
+                    duration: 0.8,
+                    rotation: 0,
+                    scale: 1,
+                    opacity: 1,
                     ease: 'power2.inOut',
                     onComplete: () => {
                         // 원래 상태로 복구
                         gsap.set(data.next.container, {
                             position: 'relative',
-                            left: 'auto',
-                            x: 0,
+                            clearProps: 'all',
                         });
                         document.querySelector('body').style.overflow = '';
                         resetScroll(data);

@@ -6,39 +6,42 @@ function resetScroll(data) {
 barba.init({
     transitions: [
         {
-            name: 'slide',
+            name: 'overlay-slide',
             leave(data) {
                 const done = this.async();
                 document.querySelector('body').style.overflow = 'hidden';
 
+                // 현재 페이지는 그대로 두고 약간의 스케일 효과만 추가
                 gsap.to(data.current.container, {
                     duration: 0.5,
-                    x: window.innerWidth * -1,
+                    scale: 0.95,
                     ease: 'power2.inOut',
-                    onComplete: done,
                 });
+
+                done();
             },
             enter(data) {
                 const done = this.async();
 
-                // 시작 위치 설정
+                // 새 페이지 초기 설정
                 gsap.set(data.next.container, {
                     position: 'fixed',
-                    left: '100%',
-                    top: 0,
+                    top: '100%',
+                    left: 0,
                     width: '100%',
+                    zIndex: 10,
                 });
 
+                // 새 페이지를 위에서 아래로 슬라이드
                 gsap.to(data.next.container, {
-                    duration: 0.5,
-                    x: window.innerWidth * -1,
+                    duration: 0.8,
+                    top: 0,
                     ease: 'power2.inOut',
                     onComplete: () => {
                         // 원래 상태로 복구
                         gsap.set(data.next.container, {
                             position: 'relative',
-                            left: 'auto',
-                            x: 0,
+                            clearProps: 'all',
                         });
                         document.querySelector('body').style.overflow = '';
                         resetScroll(data);
