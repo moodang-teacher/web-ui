@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fun Scroll Animation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        transition: background-color 0.5s;
+      }
+      .message {
+        position: fixed;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+        color: #fff;
+        display: none;
+      }
+    </style>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="progress-wrap">
+      <div class="progress-bar"></div>
+      <div class="car"></div>
+      <div class="follower"></div>
+    </div>
+    <div class="message">특별한 구간입니다!</div>
+    <div style="height: 5000px"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        const $window = $(window);
+        const $document = $(document);
+        const $progressBar = $('.progress-bar');
+        const $car = $('.car');
+        const $follower = $('.follower');
+        const $message = $('.message');
+
+        let windowHeight = 0;
+        let documentHeight = 0;
+        let scrollTop = 0;
+        let lastScrollTop = 0;
+
+        function initialize() {
+          updateDimensions();
+          bindEvents();
+        }
+
+        function updateDimensions() {
+          windowHeight = $window.outerHeight();
+          documentHeight = $document.outerHeight();
+        }
+
+        function calculateScrollPercentage() {
+          scrollTop = $window.scrollTop();
+          return `${(scrollTop / (documentHeight - windowHeight)) * 100}%`;
+        }
+
+        function updateProgress() {
+          const progressValue = calculateScrollPercentage();
+          $progressBar.css('width', progressValue);
+          $car.add($follower).css('left', progressValue);
+
+          updateCarDirection();
+          changeBackgroundColor();
+          showSpecialMessage();
+        }
+
+        function updateCarDirection() {
+          const direction = scrollTop < lastScrollTop ? 'rotateY(0)' : 'rotateY(180deg)';
+          $car.css('transform', direction);
+          lastScrollTop = scrollTop;
+        }
+
+        function changeBackgroundColor() {
+          const hue = (scrollTop / documentHeight) * 360;
+          $('body').css('background-color', `hsl(${hue}, 50%, 75%)`);
+        }
+
+        function showSpecialMessage() {
+          if (scrollTop > 2000 && scrollTop < 2500) {
+            $message.fadeIn();
+          } else {
+            $message.fadeOut();
+          }
+        }
+
+        function bindEvents() {
+          $window.on('scroll', updateProgress).on('resize', () => {
+            updateDimensions();
+            updateProgress();
+          });
+        }
+
+        initialize();
+      });
+    </script>
+  </body>
+</html>
