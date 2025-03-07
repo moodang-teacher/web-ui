@@ -1,0 +1,41 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:hover,
+body {
+  cursor: none; /* cun: 마우스 커서 감추기 */
+}
+
+.wrap {
+  width: 60%;
+  margin: 50px auto;
+  padding: 5vw;
+  line-height: 2;
+  border: 10px solid #eee;
+}
+
+/* 가짜 마우스 */
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 33px;
+  /* border: 1px solid #000; */
+  background: url(../img/hover-2.png) no-repeat 0 0;
+
+  /* 마우스 이벤트 관련 상관없는 존재, 드래그 불가능 */
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 클릭했을 때 */
+.cursor.click {
+  background-position: -32px 0;
+}

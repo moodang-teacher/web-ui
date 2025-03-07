@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: skyblue;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.wrap {
+  width: 100%;
+  border: 1px solid #fff;
+}
+
+.man {
+  width: 258px;
+  height: 513px;
+  background: url(../img/walk.png) no-repeat 0 0;
+  animation: manRunning 0.6s infinite steps(8);
+}
+
+.cat {
+  width: 245px;
+  height: 184px;
+  background: url(../img/cat.png) no-repeat 0 0;
+
+  /* transform: translateX(10px); */
+  animation: catRunning 0.3s infinite steps(6); /* steps() : 프레임 애니메이션 구현 */
+}
+
+.info {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 3rem;
+  color: #fff;
+}
+
+@keyframes catRunning {
+  100% {
+    background-position: -1470px 0;
+  }
+}
+@keyframes manRunning {
+  100% {
+    background-position: -2064px 0;
+  }
+}
