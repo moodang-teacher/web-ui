@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scrollTrigger 개념이해</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 150px;
+        height: 150px;
+        margin: 200px 0;
+      }
+      .box1 {
+        background: red;
+      }
+      .box2 {
+        background: orange;
+      }
+      .box3 {
+        background: yellow;
+      }
+
+      .box4 {
+        background: green;
+      }
+      .box4.active {
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+
+      .box5 {
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- .box*5.box${box$} -->
+    <div class="box box1">box1</div>
+    <div class="box box2">box2</div>
+    <div class="box box3">box3</div>
+    <div class="box box4">box4</div>
+    <div class="box box5">box5</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      // 스크롤트리거 연동
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.to('.box1', { x: 1000, duration: 2 });
+      gsap.to('.box3', {
+        // 스크롤트리거 설정
+        scrollTrigger: {
+          trigger: '.box3',
+          markers: true,
+          start: 'top 60%', // trigger/viewport(scroller)
+          end: 'bottom 30%',
+
+          // scrub: true, // 스크롤값에 비례
+          // scrub: 1, // 애니메이션되는 요소가 스크롤을 따라잡기까지 걸리는 시간(1초)
+
+          // * toggleActons *
+          // 상황: Enter, Leave, EnterBack, LeaveBack
+          // 동작: play, pause, resume, reset, restart, complete, reverse, none
+          toggleActions: 'play pause reverse none',
+
+          onLeave: () => {
+            document.querySelector('.box4').classList.add('active');
+          },
+        },
+
+        // 애니메이션 설정
+        x: 1000,
+        duration: 5,
+      });
+    </script>
+  </body>
+</html>

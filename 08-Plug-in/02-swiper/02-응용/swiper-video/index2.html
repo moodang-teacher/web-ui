@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@latest/swiper-bundle.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .wrap {
+        width: 90%;
+        margin: 50px auto;
+        border: 1px solid #000;
+      }
+
+      .video-slider {
+        padding: 50px 0;
+        background: #ff5;
+        overflow: hidden;
+      }
+
+      .video-slider .swiper-slide {
+        aspect-ratio: 1/1.5;
+        transform: scale(0.8);
+        transition: 0.4s;
+      }
+
+      .video-slider .swiper-slide.swiper-slide-active {
+        transform: scale(1);
+      }
+
+      .video-slider .swiper-slide video,
+      .video-slider .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/swiper@latest/swiper-bundle.min.js"></script>
+
+    <script>
+      $(function () {
+        // 비디오 모두 선택
+        const videos = $('.video-slider video');
+
+        var swiper = new Swiper('.video-slider', {
+          autoplay: false, // 자동 재생을 false로 설정
+          loop: true,
+          centeredSlides: true,
+          slidesPerView: 3,
+          spaceBetween: 30,
+
+          pagination: {
+            el: '.video-slider .swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.video-slider .swiper-button-next',
+            prevEl: '.video-slider .swiper-button-prev',
+          },
+
+          on: {
+            slideChange: async function () {
+              const videos = document.querySelectorAll('.video-slider video');
+              videos.forEach(function (video) {
+                video.pause();
+              });
+
+              const currentSlide = this.slides[this.activeIndex];
+              const videoInCurrentSlide = currentSlide.querySelector('.video-slider video');
+              if (videoInCurrentSlide) {
+                videoInCurrentSlide.play().catch(function (error) {
+                  console.log('비디오 재생 에러:', error);
+                });
+              }
+            },
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="video-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide">
+            <img src="https://www.cosinkorea.com/data/photos/20240414/art_17120529936565_2a8f34.jpg" alt="" />
+          </div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide">
+            <img src="https://img.allurekorea.com/allure/2023/04/style_643e96afa39d2.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://cf.asiaartistawards.com/news/21/2022/10/2022102714323356228_1.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://i.namu.wiki/i/H-bFQylJTFlwnkzChw8PSm2jHHn90-DmODr9ldQ2qOWWgCgtz__Nf5uMOCY6qi_GWn-1ZU79pXJ8MSc_OLaxgQ.jpg"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide">
+            <img src="https://img.vogue.co.kr/vogue/2024/02/style_65d443d259dfb-1920x1080.jpg" alt="" />
+          </div>
+        </div>
+
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </body>
+</html>

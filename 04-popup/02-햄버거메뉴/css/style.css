@@ -1,0 +1,102 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+.hidden {
+  position: absolute;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.dim {
+  position: fixed;
+  inset: 0; /* top, right, bottom, left -> 0 */
+  background: rgba(0, 0, 0, 0.6);
+
+  display: none; /* jQuery: fadeIn/Out */
+}
+
+.btn-menu {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+
+  width: 70px;
+  height: 70px;
+  background: #000;
+  border: none; /* bdn */
+  cursor: pointer; /* cup */
+}
+
+.btn-menu .line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* trftx */
+  width: 70%;
+  height: 3px;
+  transition: 0.4s;
+}
+
+.btn-menu .line:nth-of-type(1) {
+  top: 19px;
+  background: red;
+}
+.btn-menu .line:nth-of-type(2) {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: green;
+}
+.btn-menu .line:nth-of-type(3) {
+  top: 46px;
+  background: blue;
+}
+
+/* .btn-menu는 on클래스가 부여될 때 변하게 */
+.btn-menu.on .line:nth-of-type(2) {
+  display: none;
+}
+
+.btn-menu.on .line:nth-of-type(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.btn-menu.on .line:nth-of-type(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* .menu-wrap active클래스가 부여될 때  */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  right: -100%; /* 뷰포트 크기만큼 오른쪽으로 이동 */
+  transition: 0.4s;
+
+  width: 70%;
+  height: 100%;
+  background: #fff;
+  padding: 5vw;
+
+  /* bxsh */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  /* filter:drop-shadow() */
+}
+
+.menu-wrap.active {
+  right: 0;
+}

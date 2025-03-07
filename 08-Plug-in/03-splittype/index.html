@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplitType.js</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font: 1rem/1.6 Pretendard, sans-serif;
+      }
+
+      .wrap {
+        width: 80%;
+        margin: 50px auto;
+        border: 10px solid #eee;
+        padding: 3vw;
+      }
+      .wrap h2 {
+        font-weight: 700;
+        font-size: 4vw;
+        color: #000;
+      }
+
+      .title3 .char {
+        animation: wobble-hor-bottom 0.8s both;
+      }
+
+      .wobble-hor-bottom .char {
+        animation: wobble-hor-bottom 0.8s both;
+      }
+
+      @keyframes wobble-hor-bottom {
+        0%,
+        100% {
+          transform: translateX(0%);
+          transform-origin: 50% 50%;
+        }
+        15% {
+          transform: translateX(-30px) rotate(-6deg);
+        }
+        30% {
+          transform: translateX(15px) rotate(6deg);
+        }
+        45% {
+          transform: translateX(-15px) rotate(-3.6deg);
+        }
+        60% {
+          transform: translateX(9px) rotate(2.4deg);
+        }
+        75% {
+          transform: translateX(-6px) rotate(-1.2deg);
+        }
+      }
+    </style>
+
+    <!-- Minified UMD bundle -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const title1 = document.querySelector('.title1');
+
+        // 글자만 자르고 끝!
+        const text = new SplitType(title1, { types: 'chars' });
+        console.log(text.chars);
+
+        gsap.from(text.chars, {
+          y: 50,
+          opacity: 0,
+          ease: 'bounce.out',
+          stagger: 0.1, // 같은 대상에 주는 순차적인 애니메이션 효과
+        });
+
+        // 두번째 문장 - 단어로 자르기
+        const title2 = document.querySelector('.title2');
+        // 단어만 자르고 끝!
+        const text2 = new SplitType(title2, { types: 'words' });
+        console.log(text2.words);
+
+        gsap.from(text2.words, {
+          opacity: 0,
+          filter: 'blur(10px)',
+          duration: 2,
+          stagger: 0.5,
+        });
+
+        // 세번째 - 글자로 자르기
+        const title3 = document.querySelector('.title3');
+
+        title3.addEventListener('click', () => {
+          const split = new SplitType(title3, { types: 'chars' });
+        });
+
+        // 네번째 - 글자로 자르기
+        const title4 = document.querySelector('.title4');
+
+        title4.addEventListener('click', () => {
+          const split2 = new SplitType(title4, { types: 'chars' });
+          title4.classList.add('wobble-hor-bottom');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- .wrap*2>h2.title$ -->
+    <div class="wrap">
+      <h2 class="title1">용기있는 자로 살아라.</h2>
+    </div>
+
+    <div class="wrap">
+      <h2 class="title2">
+        운이 따라주지 않는다면 용기 있는 가슴으로 불행에 맞서라.
+      </h2>
+    </div>
+
+    <div class="wrap">
+      <h2 class="title3">무소의 뿔처럼 혼자서 가라.</h2>
+    </div>
+
+    <div class="wrap">
+      <h2 class="title4">
+        검사가 수사권 가지고 보복하면 그게 깡패지, 검사입니까?
+      </h2>
+    </div>
+  </body>
+</html>

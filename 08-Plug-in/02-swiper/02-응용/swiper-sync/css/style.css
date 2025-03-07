@@ -1,0 +1,87 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.con-left {
+  width: 30%;
+}
+
+.con-left .con-left__top {
+  height: 40%;
+  background: skyblue;
+  padding: 50px;
+}
+.con-left .con-left__bottom {
+  height: 60%;
+  background: tomato;
+  padding: 50px;
+}
+
+.con-right {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 슬라이더 */
+.mySlider {
+  border: 1px solid #0f0;
+  width: 90%;
+  height: 400px;
+}
+
+.mySlider .swiper-slide {
+  border: 10px solid #000;
+  font-size: 5vw;
+}
+
+/* 슬라이더와 연동되는 정보 */
+.slide-info {
+  /* 여길 기준으로 li들을 전부 겹치게 */
+  position: relative;
+}
+
+.slide-info li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid #000;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.slide-info li.active {
+  opacity: 1;
+}
+
+.slide-info li dl dt {
+  font-size: 2vw;
+}
+
+/* 커스텀 링크 */
+.my-link li {
+  margin: 10px 0;
+}
+.my-link li.on {
+  font-weight: bold;
+}

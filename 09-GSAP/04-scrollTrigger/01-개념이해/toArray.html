@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>utils.toArray()</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      section {
+        height: 100vh;
+        padding: 4vw;
+        border: 1px solid #000;
+        font-size: 3vw;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- main>section*5[data-bgcolor]>h2{section$} -->
+    <main>
+      <section data-bgcolor="red">
+        <h2>section1</h2>
+      </section>
+
+      <section data-bgcolor="orange">
+        <h2>section2</h2>
+      </section>
+
+      <section data-bgcolor="yellow">
+        <h2>section3</h2>
+      </section>
+
+      <section data-bgcolor="green">
+        <h2>section4</h2>
+      </section>
+
+      <section data-bgcolor="blue">
+        <h2>section5</h2>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // const sections = document.querySelectorAll('section');
+      const sections = gsap.utils.toArray('section'); // 배열로 변환
+      // console.log(sections);
+
+      // 반복문 적용(forEach)
+      // 대상.forEach((item, index)=>{})
+      sections.forEach((section, index) => {
+        // console.log(section, index);
+
+        // 섹션에 저장된 컬러값 가져오기
+        const bgColor = section.getAttribute('data-bgcolor');
+        console.log(bgColor);
+
+        gsap.to(section, {
+          scrollTrigger: {
+            trigger: section,
+            markers: true,
+            start: 'bottom 80%',
+            end: 'bottom 0%',
+
+            onEnter: () => {
+              gsap.to('body', { backgroundColor: bgColor });
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

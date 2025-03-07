@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>swiper.js 추가 정보 연동 및 커스텀 링크</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- 왼쪽 콘텐츠 영역 -->
+      <div class="con-left">
+        <div class="con-left__top">
+          <!-- 커스텀 링크 : 진영씨 경우 -->
+          <ul class="my-link">
+            <li><a href="#">LINK 1</a></li>
+            <li><a href="#">LINK 2</a></li>
+            <li><a href="#">LINK 3</a></li>
+            <li><a href="#">LINK 4</a></li>
+            <li><a href="#">LINK 5</a></li>
+          </ul>
+        </div>
+        <div class="con-left__bottom">
+          <!-- 슬라이더와 연동되는 정보 : 봉관씨 경우 -->
+          <ul class="slide-info">
+            <li>
+              <dl>
+                <dt>Slide 1</dt>
+                <dd>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus odio molestias, exercitationem
+                  quis rem consequatur minima. Rerum beatae est at, et quae ullam soluta tempora, deserunt delectus
+                  facilis, nulla incidunt.
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Slide 2</dt>
+                <dd>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus odio molestias, exercitationem
+                  quis rem consequatur minima. Rerum beatae est at,
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Slide 3</dt>
+                <dd>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus odio molestias, exercitationem
+                  quis rem.
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Slide 4</dt>
+                <dd>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus odio molestias, exercitationem
+                  quis rem consequatur minima.
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Slide 5</dt>
+                <dd>Lorem ipsum dolor sit, amet.</dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 오른쪽 슬라이더 영역 -->
+      <div class="con-right">
+        <!-- Slider main container -->
+        <div class="swiper mySlider">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

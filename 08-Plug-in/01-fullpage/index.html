@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fullpage.js</title>
+
+    <!-- 순서가 중요! : 우리것이 제일 마지막 -->
+    <link rel="stylesheet" href="./css/jquery.fullpage.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/jquery.fullpage.min.js"></script>
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <!-- 오른쪽 제어버튼 -->
+    <!-- ul.indicator>li*4>a>b{menu$} -->
+    <ul class="indicator">
+      <li data-menuanchor="section1">
+        <a href="#section1"><b>MENU1</b></a>
+      </li>
+      <li data-menuanchor="section2">
+        <a href="#section2"><b>MENU2</b></a>
+      </li>
+      <li data-menuanchor="section3">
+        <a href="#section3"><b>MENU3</b></a>
+      </li>
+      <li data-menuanchor="section4">
+        <a href="#section4"><b>MENU4</b></a>
+      </li>
+      <li data-menuanchor="footer">
+        <a href="#footer"><b>footer</b></a>
+      </li>
+    </ul>
+
+    <header>
+      <!-- .inner>nav>h1.logo+ul.gnb>li*4>a>{MENU$} -->
+      <div class="inner">
+        <nav>
+          <h1 class="logo">LOGO</h1>
+          <ul class="gnb">
+            <li data-menuanchor="section1"><a href="#section1">MENU1</a></li>
+            <li data-menuanchor="section2"><a href="#section2">MENU2</a></li>
+            <li data-menuanchor="section3"><a href="#section3">MENU3</a></li>
+            <li data-menuanchor="section4"><a href="#section4">MENU4</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 🚨 중요: #fullpage, .section 이름 붙이기 -->
+    <main id="fullpage">
+      <!-- section.section.section$*4>h2+p -->
+      <section class="section section1">
+        <h2>section1</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, delectus!</p>
+        <div class="links">
+          <a href="#section2/slide3">SECTION2의 SLIDE 3으로 이동</a>
+          <a href="#" class="move-sec-slide">SECTION2의 SLIDE 4로 🚀 즉시 이동</a>
+          <a href="#" class="move-sec">다음 섹션으로 이동</a>
+        </div>
+      </section>
+
+      <section class="section section2">
+        <h2>section2</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam dignissimos similique officia tempora
+          repellendus illo. Consequatur culpa eveniet possimus inventore?
+        </p>
+
+        <!-- 🚩 슬라이더 -->
+        <div class="main-slider">
+          <div class="slide" data-anchor="slide1">
+            <h3>slide1</h3>
+            <a href="#section2/slide4">slide4로 이동</a>
+          </div>
+          <div class="slide" data-anchor="slide2">Slide 2</div>
+          <div class="slide" data-anchor="slide3">Slide 3</div>
+          <div class="slide" data-anchor="slide4">Slide 4</div>
+        </div>
+      </section>
+
+      <section class="section section3 fp-auto-height">
+        <div class="scrollable-content">
+          <h2>section3</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, iusto at aut praesentium odio voluptas
+            maiores esse nesciunt architecto, ipsam eveniet nemo vel. Atque adipisci nam, itaque consequuntur inventore
+            eaque.
+          </p>
+          <div class="spacer"></div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum ea, eaque eius vitae modi nemo nobis odit
+            veritatis expedita aperiam accusamus tenetur vel cupiditate eos sint natus magnam. Incidunt ratione rem iste
+            ex in et eligendi quisquam animi aperiam optio, libero laudantium placeat eveniet ea qui possimus, maxime
+            natus dolor nostrum commodi ipsam! Asperiores nihil exercitationem error, ullam ex quibusdam dicta ad id sit
+            mollitia omnis itaque pariatur iste earum laudantium saepe! Veritatis vitae, tempora tenetur eius esse neque
+            ipsa repellendus, dolores tempore, quis at. Ipsa minus, voluptatem tempore beatae in obcaecati suscipit
+            illo. Veritatis, ut! Quod placeat qui illo?
+          </p>
+        </div>
+      </section>
+
+      <section class="section section4">
+        <h2>section4</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit esse, dicta iure sint est suscipit! Fuga,
+          iusto odit accusantium veritatis placeat doloremque provident sapiente culpa quae pariatur non officiis est!
+          Possimus non recusandae maxime in, eos provident labore modi dolor!
+        </p>
+
+        <!-- 틀없이 추가한 슬라이더 -->
+        <div>
+          <div class="slide" data-anchor="slide1">slide1</div>
+          <div class="slide" data-anchor="slide2">Slide 2</div>
+          <div class="slide" data-anchor="slide3">Slide 3</div>
+          <div class="slide" data-anchor="slide4">Slide 4</div>
+        </div>
+      </section>
+
+      <!-- 세로 크기를 다 쓰지 않는 영역: 크거나 작거나 -->
+      <footer class="section footer fp-auto-height">잘 살아보세!</footer>
+    </main>
+
+    <!-- button:button.btn-top{TOP} -->
+    <button type="button" class="btn-top">TOP</button>
+  </body>
+</html>

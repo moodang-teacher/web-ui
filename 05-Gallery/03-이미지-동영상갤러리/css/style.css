@@ -1,0 +1,143 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden; /* ovxh */
+}
+
+img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  vertical-align: top;
+  border: none;
+}
+
+.dim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+
+  display: none; /* jQuery */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  border: 10px solid #fff;
+  background: #fff;
+  transition: 0.4s;
+
+  /* 마우스와 상관없게, 사용자에게도 선택되지 않게 */
+  pointer-events: none;
+  user-select: none;
+
+  /* width를 주지 않았음 */
+  /* width: 400px;
+  height: 500px; */
+}
+
+.popup.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: initial;
+  user-select: initial;
+}
+
+.btn-close {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  opacity: 0;
+  width: 60px;
+  height: 60px;
+  border: none;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+}
+
+.popup.active .btn-close {
+  right: -70px;
+  opacity: 1;
+  transition: 0.4s 1s;
+}
+
+.title {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+
+  /* 말 줄임 표시(한 줄) */
+  /* background: #ff5; */
+  width: 100%;
+  white-space: nowrap; /* 줄바꿈 하지마 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 말 줄임 표시(...) */
+}
+
+.wrap {
+  width: 70%;
+  margin: 50px auto;
+  border: 10px solid #eee;
+  padding: 50px;
+}
+
+.gallery-list {
+  /* column-count: 4; */
+  columns: 200px; /* 200px 보장 */
+  column-gap: 10px;
+}
+
+.gallery-list li {
+  /* border: 1px solid #000; */
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  /* 세로로 짤리는 상황을 피하는 방법 */
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+}
+
+/* 마키효과 */
+.marquee {
+  display: flex;
+}
+
+.marquee p {
+  border: 1px solid #000;
+  padding: 0 20px;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 5vw;
+  color: rgba(0, 0, 0, 0.2);
+
+  animation: marquee 5s linear infinite;
+}
+
+@keyframes marquee {
+  100% {
+    transform: translateX(-100%);
+  }
+}

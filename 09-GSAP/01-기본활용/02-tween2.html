@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼으로 제어</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .wrap {
+        /* w70p+m50-a+bd */
+        width: 70%;
+        margin: 50px auto;
+        border: 1px solid #000;
+      }
+
+      .box {
+        /* w100+h100+mt30 */
+        width: 100px;
+        height: 100px;
+        margin-top: 30px;
+      }
+
+      .red {
+        background: red;
+      }
+      .yellow {
+        background: yellow;
+      }
+      .blue {
+        background: blue;
+        visibility: hidden; /* gsap, autoAlpha를 위한 세팅 */
+      }
+
+      #btnGo {
+        /* bdn+p10-30+bg+c#fff+cup */
+        border: none;
+        padding: 10px 30px;
+        background: #000;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 50px;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  </head>
+  <body>
+    <!-- .wrap>.box*3+button:button#btnGo{GO!} -->
+    <div class="wrap">
+      <div class="box red"></div>
+      <div class="box yellow"></div>
+      <div class="box blue"></div>
+      <button type="button" id="btnGo">GO!</button>
+    </div>
+
+    <script>
+      // 대상을 변수에 저장
+      const redBox = document.querySelector('.red');
+      const blueBox = document.querySelector('.blue');
+      const btnGo = document.querySelector('#btnGo');
+
+      gsap.from(redBox, {
+        y: -100,
+        rotation: 90,
+        duration: 2,
+        autoAlpha: 0,
+        delay: 1,
+        ease: 'bounce.out',
+      });
+
+      gsap.to('.yellow', {
+        rotation: 360,
+        repeat: -1,
+        duration: 2,
+        ease: 'none',
+      });
+
+      // 버튼을 클릭했을 때
+      btnGo.addEventListener('click', () => {
+        gsap.to(blueBox, {
+          x: 400,
+          duration: 2.5,
+          autoAlpha: 1,
+          ease: 'bounce.out',
+        });
+      });
+    </script>
+  </body>
+</html>

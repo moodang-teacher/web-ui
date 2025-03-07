@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tween 제어하기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .wrap {
+        /* w70p+h400+m50-a+bd+posr */
+        width: 70%;
+        height: 400px;
+        margin: 50px auto;
+        border: 1px solid #000;
+        position: relative;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        background: tomato;
+      }
+
+      .btns {
+        /* posa+b50+l50p+trftx */
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .btns button {
+        /* p10+bg+c#fff+bdn+cup */
+        padding: 10px;
+        background: #000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const tween = gsap.to('.box', {
+          x: 900,
+          rotation: 360,
+          duration: 5,
+          ease: 'none',
+
+          // 일단 멈춰놓고
+          paused: true,
+        });
+
+        // 각 버튼으로 제어 : GSAP에서 제공하는 메서드 사용
+        document.querySelector('#play').addEventListener('click', () => {
+          tween.play();
+        });
+
+        document.querySelector('#pause').addEventListener('click', () => {
+          tween.pause();
+        });
+
+        document.querySelector('#reverse').addEventListener('click', () => {
+          tween.reverse();
+        });
+
+        document.querySelector('#restart').addEventListener('click', () => {
+          tween.restart();
+        });
+
+        document.querySelector('#seek').addEventListener('click', () => {
+          tween.seek(1); // 전체 재생시간의 1초 지점으로 이동
+        });
+
+        document.querySelector('#progress').addEventListener('click', () => {
+          tween.progress(0.5); // 전체 진행률의 절반으로 이동
+        });
+
+        document.querySelector('#timescale').addEventListener('click', () => {
+          tween.timeScale(0.5); // 재생 속도 조절
+        });
+
+        document.querySelector('#kill').addEventListener('click', () => {
+          tween.kill(); // 즉시 종료: play, restart 불가능
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- .wrap>.box+.btns>button:button*8 -->
+    <div class="wrap">
+      <div class="box"></div>
+
+      <div class="btns">
+        <button type="button" id="play">play</button>
+        <button type="button" id="pause">pause</button>
+        <button type="button" id="reverse">reverse</button>
+        <button type="button" id="restart">restart</button>
+        <button type="button" id="seek">seek</button>
+        <button type="button" id="progress">progress</button>
+        <button type="button" id="timescale">timescale</button>
+        <button type="button" id="kill">kill</button>
+      </div>
+    </div>
+  </body>
+</html>

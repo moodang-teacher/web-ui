@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@latest/swiper-bundle.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .wrap {
+        width: 90%;
+        margin: 50px auto;
+        border: 1px solid #000;
+      }
+
+      .video-slider {
+        padding: 50px 0;
+        background: #ff5;
+        overflow: hidden;
+      }
+
+      .video-slider .swiper-slide {
+        aspect-ratio: 1/1.5;
+        transform: scale(0.8);
+        transition: 0.4s;
+      }
+
+      .video-slider .swiper-slide.swiper-slide-active {
+        transform: scale(1);
+      }
+
+      .video-slider .swiper-slide video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/swiper@latest/swiper-bundle.min.js"></script>
+
+    <script>
+      $(function () {
+        // 비디오 모두 선택
+        const videos = $('.video-slider video');
+
+        var swiper = new Swiper('.video-slider', {
+          autoplay: false, // 자동 재생을 false로 설정
+          loop: true,
+          centeredSlides: true,
+          slidesPerView: 3,
+          spaceBetween: 30,
+
+          pagination: {
+            el: '.video-slider .swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.video-slider .swiper-button-next',
+            prevEl: '.video-slider .swiper-button-prev',
+          },
+
+          on: {
+            slideChange: function () {
+              videos.each(function () {
+                this.pause(); // 모든 비디오 일시 정지
+              });
+              setTimeout(function () {
+                var activeVideo = $('.video-slider .swiper-slide-active video').get(0);
+                if (activeVideo) {
+                  activeVideo.play(); // 활성 슬라이드의 비디오 재생
+                }
+              }, 100); // 100ms 지연 후 재생
+            },
+            transitionEnd: function () {
+              console.log('Transition ended');
+            },
+          },
+        });
+
+        // 초기 로드 시 첫 번째 슬라이드의 비디오 재생
+        var initialVideo = $('.video-slider .swiper-slide-active video').get(0);
+        if (initialVideo) {
+          initialVideo.play();
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="video-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+          <div class="swiper-slide"><video src="./video/CULITA_DTC_PC_23s.mp4" muted autoplay loop></video></div>
+        </div>
+
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+body {
+  font: 1rem/1.6 'Montserrat', sans-serif;
+}
+
+.wrap {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bg-list::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  filter: saturate(0.4);
+}
+
+/* 배경 */
+.bg-list .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000 no-repeat 50% / cover;
+}
+.bg-list .bg.bg01 {
+  background-image: url(../img/newjeans01.jpg);
+}
+.bg-list .bg.bg02 {
+  background-image: url(../img/newjeans02.jpg);
+}
+.bg-list .bg.bg03 {
+  background-image: url(../img/newjeans03.jpg);
+}
+.bg-list .bg.bg04 {
+  background-image: url(../img/newjeans04.jpg);
+}
+.bg-list .bg.bg05 {
+  background-image: url(../img/newjeans05.jpg);
+}
+.bg-list .bg.bg06 {
+  background-image: url(../img/newjeans06.jpg);
+}
+
+.bg-list .bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bg-list .bg iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+/* 슬라이더 */
+.card-slider {
+  padding: 70px 0;
+}
+.card-slider .swiper-slide {
+  width: 450px;
+  aspect-ratio: 1/0.7;
+  margin: 0 50px;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+}
+
+/* 활성화된 슬라이드 */
+.card-slider .swiper-slide.swiper-slide-active {
+}
+
+.card-slider .swiper-slide:nth-child(even) {
+  transform: rotate(5deg);
+}
+.card-slider .swiper-slide:nth-child(odd) {
+  transform: rotate(-5deg);
+}
+.card-slider .swiper-slide:nth-child(even).on {
+  transform: rotate(-5deg);
+}
+.card-slider .swiper-slide:nth-child(odd).on {
+  transform: rotate(5deg);
+}
+
+.card-slider .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 하단 설명 영역 */
+.con-list {
+  position: absolute;
+  top: 450px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 400px;
+}
+.con-list .con {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+
+  display: none;
+}
+.con-list .con dt {
+  font-weight: 900;
+  font-size: 2rem;
+}
+.con-list .con dd {
+  font-weight: 700;
+  color: #f39;
+}
+.con-list .con dd + dd {
+  font-weight: 400;
+  color: #fff;
+}

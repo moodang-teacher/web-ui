@@ -1,0 +1,86 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+.wrap {
+  width: 50%;
+  margin: 50px auto;
+  border: 10px solid #eee;
+  padding: 60px;
+}
+
+.sample {
+  background: #f5f5f5;
+  margin-top: 60px;
+}
+
+.select-menu {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #000;
+}
+
+.select-wrap {
+  /* w200+h50+bd+bg#fff */
+  width: 200px;
+  height: 50px;
+  border: 1px solid #000;
+  background: #fff;
+
+  /* .select-list를 위한 기준 */
+  position: relative;
+}
+
+.select-wrap strong {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-wrap strong::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: solid #000;
+  border-width: 2px 2px 0 0;
+  transform: translateY(0) rotate(135deg); /* trfr */
+  transition: 0.4s;
+}
+
+.select-wrap strong.active::after {
+  transform: translateY(5px) rotate(315deg);
+  border-color: red; /* bdc */
+}
+
+.select-list {
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  width: calc(100% + 2px);
+  border: 1px solid #000;
+  background: #fff;
+  display: none;
+}
+
+.select-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+.select-list li:hover {
+  background: #f5f5f5;
+}

@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  height: 100vh;
+  padding: 5vw;
+  font-weight: bold;
+  font-size: 4vw;
+  color: #fff;
+}
+
+.section1 {
+  background: tomato;
+}
+.section2 {
+  background: skyblue;
+}
+.section3 {
+  background: yellowgreen;
+}

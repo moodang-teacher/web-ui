@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>패밀리사이트</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <!-- .wrap>h1+.sample*2 -->
+    <div class="wrap">
+      <h1>패밀리사이트</h1>
+
+      <!-- select tag -->
+      <div class="sample">
+        <!-- select>opt*4 -->
+        <select class="select-menu">
+          <option value="#" selected>family site</option>
+          <option value="https://www.google.com">구글</option>
+          <option value="https://www.naver.com">네이버</option>
+          <option value="https://www.daum.net">다음</option>
+        </select>
+      </div>
+
+      <!-- 디자인 커스텀 -->
+      <div class="sample">
+        <!-- .select-wrap>strong+ul.select-list>li*3 -->
+        <div class="select-wrap">
+          <strong>family site</strong>
+
+          <ul class="select-list">
+            <li data-link="https://www.google.com">구글</li>
+            <li data-link="https://www.naver.com">네이버</li>
+            <li data-link="https://www.daum.net">다음</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

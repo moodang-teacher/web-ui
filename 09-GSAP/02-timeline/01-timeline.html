@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-timeline.html</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .wrap {
+        /* w70p+m50-a+bd */
+        width: 70%;
+        margin: 50px auto;
+        border: 1px solid #000;
+      }
+
+      .box {
+        /* w100+h100+mt30 */
+        width: 100px;
+        height: 100px;
+        margin-top: 30px;
+      }
+
+      .red {
+        background: red;
+      }
+      .yellow {
+        background: yellow;
+      }
+      .blue {
+        background: blue;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="box red"></div>
+      <div class="box yellow"></div>
+      <div class="box blue"></div>
+    </div>
+
+    <script>
+      // tween방식으로 순차적인 애니메이션을 구성하려면 delay를 계산해서 적용 -> 불편함
+      // gsap.to('.red', { x: 800, duration: 2 });
+      // gsap.to('.yellow', { x: 800, duration: 2, delay: 2 });
+      // gsap.to('.blue', { x: 800, duration: 2, delay: 4 });
+
+      // 여러 요소의 순차적인 애니메이션 제작을 위해, 타임라인을 설정
+      const tl = gsap.timeline();
+
+      // tl.to('.red', { x: 800, duration: 2 });
+      // tl.to('.yellow', { x: 800, duration: 2, delay: 2 });
+      // tl.to('.blue', { x: 800, duration: 2 }, 0);
+
+      // position parameter
+      tl.to('.red', { x: 800, duration: 2 });
+      tl.to('.yellow', { x: 800, duration: 3 }, '-=1.5');
+      tl.to('.blue', { x: 800, duration: 2 }, '<');
+    </script>
+  </body>
+</html>
